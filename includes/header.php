@@ -427,7 +427,7 @@ start_session();
             }, 100);
         });
     </script>
-    <header>
+    <header class="scrolled">
         <div class="container">
             <div class="site-header">
                 <div class="site-logo">
@@ -436,13 +436,13 @@ start_session();
                     </a>
                 </div>
                 <div style="display: flex; align-items: center; gap: 40px;">
-                    <div class="theme-switch-wrapper satu">
+                    <!-- <div class="theme-switch-wrapper satu">
                             <label class="theme-switch" for="checkbox">
                                 <input type="checkbox" id="checkbox" onclick="toggleDarkModeDirect(this.checked); return false;">
                                 <span class="slider-icon sun" onclick="toggleDarkModeDirect(true); return false;"><i class="bx bxs-sun"></i></span>
                                 <span class="slider-icon moon" onclick="toggleDarkModeDirect(false); return false;"><i class="bx bxs-moon"></i></span>
                             </label>
-                        </div>
+                    </div> -->
                     
                     <div class="menu-toggle" id="mobile-menu">
                         <span class="bar"></span>
@@ -452,13 +452,13 @@ start_session();
                 </div>
 
                 <nav class="main-nav" id="main-nav">
-                    <div class="theme-switch-wrapper dua">
+                    <!-- <div class="theme-switch-wrapper dua">
                         <label class="theme-switch" for="checkbox2">
                             <input type="checkbox" id="checkbox2" onclick="toggleDarkModeDirect(this.checked); return false;">
                             <span class="slider-icon sun" onclick="toggleDarkModeDirect(true); return false;"><i class="bx bxs-sun"></i></span>
                             <span class="slider-icon moon" onclick="toggleDarkModeDirect(false); return false;"><i class="bx bxs-moon"></i></span>
                         </label>
-                    </div>
+                    </div> -->
                     <div class="search-widget">
                         <form action="<?php echo url_base() . 'cari'; ?>" method="get" class="search-form">
                             <div class="search-input-group">

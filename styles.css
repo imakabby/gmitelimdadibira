@@ -24,6 +24,7 @@
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1px;
+    margin-top: -80px;
 }
 
 .hero-image::before {

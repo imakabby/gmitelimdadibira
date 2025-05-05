@@ -129,4 +129,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 50);
         });
     });
+});
+
+// Fungsi untuk menangani efek scroll pada header
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header.tetap');
+    let lastScroll = 0;
+    const scrollThreshold = 100; // Jarak scroll sebelum header muncul
+
+    // Fungsi untuk mengecek posisi scroll
+    function checkScroll() {
+        const currentScroll = window.pageYOffset;
+
+        // Tambahkan class 'scrolled' jika scroll melebihi threshold
+        if (currentScroll > scrollThreshold) {
+            header.classList.toggle('scrolled', true);
+        } else {
+            header.classList.toggle('scrolled', false);
+        }
+
+        lastScroll = currentScroll;
+    }
+
+    // Tambahkan event listener untuk scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // Cek scroll saat halaman dimuat
+    checkScroll();
 }); 
