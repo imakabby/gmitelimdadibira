@@ -1,0 +1,46 @@
+# Enable URL rewriting
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} ^/webberita/([^/]+)/ [NC]
+RewriteRule .* - [E=BASE:/webberita/%1/]
+RewriteCond %{REQUEST_URI} ^/
+RewriteRule .* - [E=BASE:/]
+
+# Jangan rewrite untuk folder dan file yang sudah ada
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Aturan untuk admin
+RewriteRule ^artikel/utama/?$ articles/index.php [L,QSA]
+RewriteRule ^artikel/buat/?$ articles/create.php [L,QSA]
+RewriteRule ^artikel/edit/([^/]+)/?$ articles/edit.php?id=$1 [L,QSA]
+RewriteRule ^artikel/delete/([^/]+)/?$ articles/delete.php?id=$1 [L,QSA]
+
+RewriteRule ^kategori/utama/?$ categories/index.php [L,QSA]
+RewriteRule ^kategori/buat/?$ categories/create.php [L,QSA]
+RewriteRule ^kategori/edit/([^/]+)/?$ categories/edit.php?id=$1 [L,QSA]
+RewriteRule ^kategori/delete/([^/]+)/?$ categories/delete.php?id=$1 [L,QSA]
+
+RewriteRule ^komentar/utama/?$ comments/index.php [L,QSA]
+
+RewriteRule ^user/utama/?$ user/index.php [L,QSA]
+RewriteRule ^user/buat/?$ user/create.php [L,QSA]
+RewriteRule ^user/edit/([^/]+)/?$ user/edit.php?id=$1 [L,QSA]
+
+RewriteRule ^media/?$ media-manager.php [L,QSA]
+
+RewriteRule ^banner/?$ banner-manager.php [L,QSA]
+
+RewriteRule ^dashboard/?$ dashboard.php [L,QSA]
+
+RewriteRule ^login/?$ login.php [L,QSA]
+
+RewriteRule ^profil/?$ profile.php [L,QSA]
+
+RewriteRule ^logout/?$ logout.php [L,QSA]
+
+# Aturan umum untuk menyembunyikan ekstensi .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)?$ $1.php [L,QSA]

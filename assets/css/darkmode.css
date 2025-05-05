@@ -1,0 +1,872 @@
+/* Dark Mode Styles */
+:root {
+  --dark-bg-color: #26272e;
+  --dark-card-bg: #1e1e21;
+  --dark-article-bg: #1e1e21;
+  --dark-text-color: #e0e0e0;
+  --dark-text-muted: #c4c4c4;
+  --dark-border-color: #333333;
+  --dark-hover-color: #2c2c2c;
+  --dark-header-bg: linear-gradient(195deg, #342c47 10%, #241937 45%, #150f21 75%, #0d0811 100%);
+  --dark-header-bg-transparent: linear-gradient(195deg, rgba(52,44,71,0.95) 10%, rgba(36,25,55,0.95) 45%, rgba(21,15,33,0.95) 75%, rgba(13,8,17,0.95) 100%);
+  --dark-comment-bg: #252525;
+}
+
+/* PENTING: Background body tidak menggunakan transition untuk menghindari delay */
+body {
+  transition: color 0.3s ease;
+  transition-property: color, border-color, box-shadow, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Styling untuk dark mode - prioritas tertinggi */
+body.dark-mode,
+.dark-mode body,
+html.dark-mode body,
+body[class*="dark-mode"] {
+  background-color: #26272e !important;
+  color: #e0e0e0 !important;
+  transition: color 0.3s ease; /* hanya color yang mendapat transisi, bukan background */
+}
+
+/* Force warna dark mode untuk elemen utama - prioritas tinggi dengan !important di semua level */
+html.dark-mode body {
+  background-color: var(--dark-bg-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* Prioritaskan perubahan pada element body tanpa transisi background */
+html.dark-mode body,
+body.dark-mode,
+.dark-mode body {
+  background-color: var(--dark-bg-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* Fokus pada transisi header dan elemen lain */
+html.dark-mode header,
+body.dark-mode header,
+body.dark-mode .main-nav,
+body.dark-mode .card,
+body.dark-mode .article-card,
+body.dark-mode .sidebar-widget {
+  background-color: var(--dark-card-bg) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* Transisi bertahap (multi-stage) untuk elemen lain selain body */
+body.transition-ready {
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.transition-ready .card,
+body.transition-ready .article-card,
+body.transition-ready .sidebar-widget,
+body.transition-ready header,
+body.transition-ready footer,
+body.transition-ready .comment-item {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transisi khusus tanpa background untuk input dan elemen form */
+input, textarea, select, .card, .article-card, .sidebar-widget {
+  transition-property: border-color, color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Elemen yang perlu transisi specific - tanpa background */
+header, footer, .sidebar-widget, .article-card, .card, .banner-container, 
+.comment-item, .form-control, .btn, .pagination a, .site-logo span, 
+.recent-posts li, .category-list a, .footer-section {
+  transition-property: color, border-color, box-shadow, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Prioritas perubahan header */
+body.dark-mode header {
+  transition-property: border-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Header dark mode */
+body.dark-mode header,
+html.dark-mode header,
+.dark-mode header,
+header.dark-mode {
+  background: var(--dark-header-bg) !important;
+}
+
+html.dark-mode header {
+  background: var(--dark-header-bg);
+}
+
+@media (max-width: 992px) {
+  body.dark-mode .main-nav {
+    background: var(--dark-header-bg-transparent);
+  }
+}
+
+/* Running Text dark mode */
+body.dark-mode .running-text {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .running-text-label {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .running-text a {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .running-text small {
+  color: var(--dark-text-muted);
+}
+
+/* Cards dark mode */
+body.dark-mode .card {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .card-header {
+  background-color: var(--dark-card-bg);
+  border-bottom-color: var(--dark-border-color);
+}
+
+body.dark-mode .card-header h2::before {
+  color: #f15619;
+}
+
+/* Article cards dark mode */
+body.dark-mode .article-card {
+  background-color: var(--dark-article-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .article-content h2 a {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .article-excerpt {
+  color: var(--dark-text-color) !important;
+}
+
+body.dark-mode .article-meta {
+  color: var(--dark-text-color) !important;
+}
+
+body.dark-mode .article-meta span {
+  color: var(--dark-text-color);
+}
+
+/* Banner dark mode */
+body.dark-mode .banner-container {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .default-banner {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+}
+
+body.dark-mode .banner-content {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Pilihan Editor dark mode */
+body.dark-mode .pilihan-title {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .pilihan-category {
+  background-color: #f15619;
+}
+
+body.dark-mode .pilihan-nav {
+  background-color: #f15619;
+  color: #fff;
+}
+
+body.dark-mode .pilihan-nav:hover {
+  background-color: #f15619 !important;
+}
+
+/* Sidebar dark mode - Perbaikan dan penambahan */
+body.dark-mode .sidebar-widget {
+  background: linear-gradient(145deg, #252529, #1a1a1d);
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15),
+              -5px -5px 15px rgba(40, 40, 45, 0.2);
+  border: 1px solid rgba(50, 50, 55, 0.8);
+  overflow: hidden;
+  position: relative;
+}
+
+body.dark-mode .sidebar-widget:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffc649, #ff6b2b, #f15619);
+  opacity: 0.85;
+}
+
+body.dark-mode .sidebar-widget h3 {
+  color: var(--dark-text-color);
+  border-bottom: 2px solid #333;
+}
+
+body.dark-mode .sidebar-widget h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(to right, #ff6b2b, #f15619);
+}
+
+/* Recent posts styling dalam dark mode */
+body.dark-mode .recent-posts {
+  list-style: none;
+}
+
+body.dark-mode .recent-posts li {
+  background-color: rgba(40, 40, 45, 0.5);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(60, 60, 65, 0.5);
+}
+
+body.dark-mode .recent-posts li:hover {
+  background-color: rgba(60, 60, 70, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .recent-posts a {
+  color: var(--dark-text-color);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .recent-posts a:hover {
+  color: #ff8a50;
+}
+
+body.dark-mode .post-date {
+  color: var(--dark-text-muted);
+  display: block;
+}
+
+/* Category list styling dalam dark mode */
+body.dark-mode .category-widget .category-list {
+  list-style: none;
+
+}
+
+body.dark-mode .category-list a {
+  background-color: rgba(40, 40, 45, 0.5);
+  color: var(--dark-text-color);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(60, 60, 65, 0.5);
+}
+
+body.dark-mode .category-list a:hover {
+  background-color: rgba(60, 60, 70, 0.5);
+  color: #ff8a50;
+}
+
+body.dark-mode .category-list .count {
+  background-color: rgba(30, 30, 35, 0.7);
+  color: var(--dark-text-muted);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .category-list a:hover .count {
+  background-color: rgba(241, 86, 25, 0.2);
+  color: #ff8a50;
+}
+
+/* Popular posts dengan gambar */
+body.dark-mode .recent-posts li img {
+  border: 1px solid rgba(60, 60, 65, 0.5);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .recent-posts li:hover img {
+  border-color: rgba(100, 100, 110, 0.5);
+}
+
+/* Search Widget */
+body.dark-mode .search-input-group {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-text-color) !important;
+}
+
+body.dark-mode .search-input {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .search-input::placeholder {
+  color: var(--dark-text-muted);
+}
+
+/* Footer dark mode */
+body.dark-mode .site-footer {
+  background-color: var(--dark-card-bg);
+  border-top-color: var(--dark-border-color);
+}
+
+body.dark-mode .footer-section p {
+  color: var(--dark-text-muted);
+}
+
+body.dark-mode .footer-section a {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .footer-section h3 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .footer-bottom {
+  border-top-color: var(--dark-border-color);
+}
+
+/* Form elements dark mode */
+body.dark-mode input, 
+body.dark-mode textarea, 
+body.dark-mode select {
+  background-color: #252525;
+  border-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode input::placeholder, 
+body.dark-mode textarea::placeholder {
+  color: var(--dark-text-muted);
+}
+
+/* Pagination dark mode */
+body.dark-mode .pagination a {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .pagination .current {
+  background-color: #f15619;
+  color: white;
+}
+
+body.dark-mode .pagination a:hover {
+  background-color: #3a3a3a;
+}
+
+/* Comments dark mode */
+body.dark-mode .comment-item {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .comment-header {
+  border-bottom-color: var(--dark-border-color);
+}
+
+body.dark-mode .no-comments {
+  background-color: var(--dark-card-bg);
+}
+
+body.dark-mode .comment-form label {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .form-info {
+  color: var(--dark-text-muted);
+}
+
+/* Switch Style */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.theme-switch-wrapper.satu {
+  display: none;
+}
+
+.theme-switch-wrapper.dua {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .theme-switch-wrapper.satu {
+    display: block;
+  }
+
+  .theme-switch-wrapper.dua {
+    display: none;
+  }
+}
+
+.theme-switch input {
+  display: none;
+}   
+
+.slider-icon {
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  top: 3px;
+  position: relative;
+  margin-right: -20px;
+}
+
+.slider-icon.sun {
+  display: inline-block;
+}
+
+.slider-icon.moon {
+  display: none;
+  color: #ffffff;
+}
+
+body.dark-mode .slider-icon.sun {
+  display: none;
+}
+
+body.dark-mode .slider-icon.moon {
+  display: inline-block;
+}
+
+/* Additional dark mode adjustments */
+body.dark-mode .read-more {
+  color: #ffffff !important;
+}
+
+body.dark-mode mark {
+  background-color: rgba(241, 86, 25, 0.3);
+  color: #ff8a50;
+}
+
+body.dark-mode .alert-success {
+  background-color: #1e3320;
+  border-color: #2d5a39;
+  color: #5cb85c;
+}
+
+body.dark-mode .alert-danger {
+  background-color: #3c1717;
+  border-color: #672525;
+  color: #ff5252;
+}
+
+body.dark-mode .pilihan-container h2 {
+  color: #fff;
+}
+
+body.dark-mode .pilihan-container .pilihan-scrollable .pilihan-item .pilihan-item-title {
+  color: #fff;
+}
+
+body.dark-mode .card-header h2 {
+  color: #fff;
+}
+
+body.dark-mode .card-header h2::before {
+  color: #fff;
+}
+
+body.dark-mode .article-title {
+  color: #fff;
+}
+
+body.dark-mode .article-meta {
+  color: #fff;
+}
+
+body.dark-mode .single-article {
+  background-color: var(--dark-card-bg);
+}
+
+body.dark-mode .single-article .article-title {
+  color: #fff;
+}
+
+/* Perbaikan untuk article.php */
+body.dark-mode .article-content {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .article-content p,
+body.dark-mode .article-content ul,
+body.dark-mode .article-content ol,
+body.dark-mode .article-content h1,
+body.dark-mode .article-content h2,
+body.dark-mode .article-content h3,
+body.dark-mode .article-content h4,
+body.dark-mode .article-content h5,
+body.dark-mode .article-content h6 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .article-content a {
+  color: #ff8a50;
+}
+
+body.dark-mode .article-content a:hover {
+  color: #ff6b2b;
+}
+
+body.dark-mode .article-featured-image {
+  background-color: #2a2a2a;
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .image-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .article-excerpt {
+  color: var(--dark-text-muted);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .article-meta-share {
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .category-badge a {
+  background-color: #f15619;
+  color: #fff;
+}
+
+/* body.dark-mode .share-button {
+  background-color: #2a2a2a;
+  color: var(--dark-text-color);
+} */
+
+/* body.dark-mode .share-button:hover {
+  background-color: #f15619;
+} */
+
+/* Perbaikan untuk artikel terkait di article.php */
+body.dark-mode .card.mt-4 .article-card {
+  background-color: var(--dark-article-bg);
+}
+
+body.dark-mode .card.mt-4 .article-content h2 a {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .card.mt-4 .article-meta {
+  color: var(--dark-text-muted) !important;
+}
+
+/* Perbaikan untuk komentar */
+body.dark-mode .article-comments {
+  background-color: var(--dark-card-bg);
+}
+
+body.dark-mode .article-comments h2 {
+  color: var(--dark-text-color);
+}
+
+/* Tambahan baru untuk comment container */
+body.dark-mode .comment-container {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .comment-form {
+  background-color: var(--dark-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .comment-form .form-control:focus {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .comment-list {
+  background-color: var(--dark-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .comment-list h3 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .comment-item {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .comment-header {
+  border-bottom-color: var(--dark-border-color);}
+
+body.dark-mode .comment-author {
+  color: var(--dark-text-color);
+  font-weight: bold;
+}
+
+body.dark-mode .comment-date {
+  color: var(--dark-text-muted);
+}
+
+body.dark-mode .comment-content {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .comments-wrapper {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .no-comments {
+  background-color: var(--dark-article-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .no-comments p {
+  color: var(--dark-text-muted);
+}
+
+body.dark-mode .btn-comment {
+  background-color: #f15619;
+  color: #fff;
+  border-color: #f15619;
+}
+
+body.dark-mode .form-control {
+  background-color: #252525;
+  border-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .form-control::placeholder {
+  color: var(--dark-text-muted);
+}
+
+body.dark-mode .form-label.required {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .article-video {
+  background-color: var(--dark-card-bg);
+}
+
+body.dark-mode .article-video h2 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .video-title h3 {
+  color: var(--dark-text-color);
+}
+
+/* Perbaikan untuk sidebar.php */
+body.dark-mode .sidebar {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .recent-posts-widget img {
+  border: 1px solid var(--dark-border-color);
+}
+
+body.dark-mode .recent-posts-widget span {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .category-widget h3,
+body.dark-mode .recent-posts-widget h3 {
+  color: var(--dark-text-color);
+  border-color: var(--dark-border-color);
+}
+
+/* Garis bawah judul widget */
+body.dark-mode .sidebar-widget h3::after {
+  background-color: #f15619;
+}
+
+/* Recent posts styling */
+body.dark-mode .sidebar-widget.recent-posts-widget {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+}
+
+/* Font icons */
+body.dark-mode .fa, 
+body.dark-mode .fas, 
+body.dark-mode .far, 
+body.dark-mode .fab {
+  color: inherit;
+}
+
+/* Sidebar widget effect khusus */
+body.dark-mode .sidebar-widget {
+  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+body.transition-ready.dark-mode .sidebar-widget {
+  transition: background 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.transition-ready.dark-mode .sidebar-widget:before {
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transisi khusus untuk elemen navbar dan menu */
+body.dark-mode .main-nav,
+body.dark-mode .site-logo,
+body.dark-mode .search-input-group {
+  transition: all 0.5s ease;
+}
+
+body.transition-ready.dark-mode .main-nav,
+body.transition-ready.dark-mode .site-logo,
+body.transition-ready.dark-mode .search-input-group {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transisi untuk footer yang terpisah */
+body.dark-mode .site-footer,
+body.dark-mode .footer-section,
+body.dark-mode .footer-content,
+body.dark-mode .footer-bottom {
+  transition: all 0.5s ease;
+}
+
+body.transition-ready.dark-mode .site-footer,
+body.transition-ready.dark-mode .footer-section,
+body.transition-ready.dark-mode .footer-content,
+body.transition-ready.dark-mode .footer-bottom {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Perbaikan untuk button dan elemen interaktif */
+body.dark-mode .btn,
+body.dark-mode .theme-switch,
+body.dark-mode .pagination a,
+body.dark-mode .form-control {
+  transition: all 0.3s ease;
+}
+
+body.transition-ready.dark-mode .btn,
+body.transition-ready.dark-mode .theme-switch,
+body.transition-ready.dark-mode .pagination a,
+body.transition-ready.dark-mode .form-control {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Menghindari flicker pada load dengan opacity bertahap */
+body:not(.theme-transition-complete) {
+  opacity: 0.95;
+}
+
+body.theme-transition-complete {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Disable transisi saat pertama load */
+body.no-transition, 
+body.no-transition * {
+  transition: none !important;
+}
+
+/* Efek hover yang lebih halus */
+body.dark-mode .recent-posts li:hover,
+body.dark-mode .category-list a:hover,
+body.dark-mode .pagination a:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Transisi warna teks */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6, 
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode span,
+body.dark-mode label {
+  transition: color 0.3s ease;
+}
+
+body.transition-ready.dark-mode h1,
+body.transition-ready.dark-mode h2,
+body.transition-ready.dark-mode h3,
+body.transition-ready.dark-mode a {
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transisi latar belakang */
+body.dark-mode .card,
+body.dark-mode .article-card,
+body.dark-mode .sidebar-widget,
+body.dark-mode .site-footer,
+body.dark-mode .banner-container,
+body.dark-mode .comment-item {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animasi untuk elemen sidebar */
+body.transition-ready.dark-mode .sidebar-widget {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 992px) {
+  body.dark-mode .main-nav {
+    background: var(--dark-header-bg-transparent);
+  }
+}
+
+/* Force warna dark mode untuk elemen utama */
+html.dark-mode,
+html.dark-mode body {
+  background-color: var(--dark-bg-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* Force warna dark mode pada header dan komponen penting */
+html.dark-mode header,
+body.dark-mode header,
+body.dark-mode .main-nav,
+body.dark-mode .card,
+body.dark-mode .article-card,
+body.dark-mode .sidebar-widget {
+  background-color: var(--dark-card-bg) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* Header dengan gradient khusus */
+html.dark-mode header,
+body.dark-mode header {
+  background: var(--dark-header-bg) !important;
+}
+
+/* Media query untuk responsive dark mode */
+@media (max-width: 992px) {
+  body.dark-mode .main-nav {
+    background: var(--dark-header-bg-transparent);
+  }
+}
+

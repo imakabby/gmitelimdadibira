@@ -1,0 +1,70 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Base directory untuk localhost/webberita
+# RewriteBase /webberita/
+RewriteCond %{REQUEST_URI} ^/webberita/([^/]+)/ [NC]
+RewriteRule .* - [E=BASE:/webberita/%1/]
+RewriteCond %{REQUEST_URI} ^/
+RewriteRule .* - [E=BASE:/]
+
+# Headers untuk keamanan dan Content-Security-Policy
+<IfModule mod_headers.c>
+    # Mengaktifkan CORS
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    
+    # Security headers
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Content-Security-Policy yang lebih longgar untuk iklan
+    Header set Content-Security-Policy "upgrade-insecure-requests; default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http: data: blob:; img-src 'self' data: https: http: blob:; connect-src 'self' https: http: blob:; frame-src 'self' https: http: data: blob:; object-src 'self' https: http: blob:; style-src 'self' 'unsafe-inline' https: http:; font-src 'self' data: https: http:;"
+    
+    # Cache control untuk file statis
+    <FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif|js|css|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# Jangan rewrite untuk folder dan file yang sudah ada
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Aturan untuk halaman index tanpa ekstensi
+RewriteRule ^beranda/?$ index.php [L,QSA]
+
+# Aturan untuk halaman artikel (artikel/[slug] menjadi article.php?slug=[slug])
+RewriteRule ^artikel/([^/]+)/?$ article.php?slug=$1 [L,QSA]
+
+# Aturan untuk halaman kategori (kategori/[id] menjadi category.php?id=[id])
+RewriteRule ^kategori/([0-9]+)/?$ category.php?id=$1 [L,QSA]
+
+# Aturan untuk halaman pencarian (cari menjadi search.php)
+RewriteRule ^cari/?$ search.php [L,QSA]
+
+# Aturan umum untuk menyembunyikan ekstensi .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+
+# Keamanan dasar
+Options -Indexes
+ServerSignature Off
+
+# Aktifkan gzip compression untuk meningkatkan performa
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml
+</IfModule>
+
+# Mengaktifkan ekstensi PHP yang dibutuhkan
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 12M
+    php_value post_max_size 14M
+    php_value memory_limit 128M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>

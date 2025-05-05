@@ -1,0 +1,228 @@
+/* Admin Responsive CSS */
+
+/* ===== MOBILE VIEW (Tampilan < 768px) ===== */
+@media (max-width: 767.98px) {
+  /* Sidebar responsif */
+  .admin-sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    z-index: 9999;
+  }
+  
+  .admin-sidebar.active {
+    transform: translateX(0);
+  }
+  
+  /* Main content */
+  .admin-main {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  /* Tampilan menu toggle */
+  .menu-toggle {
+    display: flex !important;
+  }
+  
+  /* Card padding */
+  .card-header {
+    padding: 15px !important;
+  }
+  
+  .card-body {
+    padding: 15px !important;
+  }
+  
+  /* Table responsif */
+  .admin-table th, 
+  .admin-table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .action-buttons .btn-sm {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  /* Form groups pada mobile */
+  .form-group.row {
+    flex-direction: column;
+  }
+  
+  .form-group.row label {
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: left !important;
+  }
+  
+  .form-group.row .col-sm-10 {
+    width: 100%;
+  }
+  
+  /* Banner Manager */
+  .banner-preview {
+    margin-top: 15px;
+  }
+  
+  /* Tombol aksi footer */
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Media Manager */
+  .media-card-footer {
+    flex-direction: column;
+  }
+  
+  .media-card-footer .btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+/* ===== TABLET VIEW (768px - 991px) ===== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Sidebar responsif */
+  .admin-sidebar {
+    width: 220px;
+  }
+  
+  .admin-main {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+  }
+  
+  /* Card dan table padding */
+  .card-header, .card-body {
+    padding: 20px;
+  }
+  
+  .admin-table th, 
+  .admin-table td {
+    padding: 10px 12px;
+  }
+  
+  /* Media Manager */
+  .media-card {
+    height: auto !important;
+  }
+}
+
+/* ===== KEDUANYA (Tablet dan Mobile) ===== */
+@media (max-width: 991.98px) {
+  /* Dashboard */
+  .dashboard-stats .row > div {
+    margin-bottom: 15px;
+  }
+  
+  /* Toggle dropdown menu */
+  .navbar-dropdown-toggle span {
+    display: none;
+  }
+  
+  /* Media Manager & Banner Manager responsif */
+  .media-actions {
+    flex-wrap: wrap;
+  }
+  
+  .media-actions .btn-group {
+    margin-bottom: 10px;
+  }
+  
+  /* Header pada halaman admin */
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  /* Media Gallery responsif */
+  .media-gallery .col-md-3 {
+    width: 50%;
+  }
+}
+
+/* Compact media cards for mobile */
+@media (max-width: 575.98px) {
+  .media-gallery .col-md-3 {
+    width: 100%;
+  }
+  
+  .welcome-message {
+    font-size: 1.2rem !important;
+  }
+  
+  .stat-card-body {
+    padding: 15px;
+  }
+  
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  /* CKEditor responsif untuk mobile */
+  .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 200px !important;
+  }
+  
+  /* Formulir login */
+  .login-container {
+    padding: 30px 25px;
+  }
+  
+  /* Tombol di form */
+  .form-actions button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .media-actions .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .admin-content {
+    padding: 0px;
+  }
+    /* Header pada halaman admin */
+    .page-header h1 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    }
+}
+
+/* Animasi menu sidebar mobile */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Overlay saat sidebar aktif */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+
+.sidebar-overlay.active {
+  display: block;
+} 
