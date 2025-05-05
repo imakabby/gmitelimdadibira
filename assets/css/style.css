@@ -1551,7 +1551,7 @@ footer::before {
 
 .card-body {
     padding: 25px;
-    background: #fff3f9;
+    /* background: #fff3f9; */
 }
 
 /* Responsive */
