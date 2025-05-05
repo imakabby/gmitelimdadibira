@@ -5,12 +5,6 @@
     padding: 0;
 }
 
-html, body {
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-}
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -102,7 +96,7 @@ header {
     position: -webkit-sticky !important;
     position: sticky !important;
     top: 0;
-    z-index: 9999 !important;
+    z-index: 1500 !important;
     border-bottom: none;
     transition: all 0.3s ease;
     transform: translateZ(0);
@@ -112,22 +106,14 @@ header {
     -webkit-transform: translate3d(0,0,0);
 }
 
-/* Tambahkan media query khusus untuk mobile */
-@media (max-width: 767px) {
-    header {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        top: 0 !important;
-        width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 9999 !important;
-    }
-}
-
 header.sticky-active {
     padding: 5px 0;
-    box-shadow: 0 3px 20px rgba(255, 79, 0, 0.25);
+    /* box-shadow: 0 3px 20px rgba(255, 79, 0, 0.25); */
+}
+
+header.sticky-active .site-logo img {
+    width: 50px !important;
+    height: 50px !important;
 }
 
 header.sticky-active .site-logo a {
@@ -137,7 +123,6 @@ header.sticky-active .site-logo a {
 @media (max-width: 575px) {
     header.sticky-active {
         padding: 3px 0;
-        /* box-shadow: 0 2px 10px rgba(255, 79, 0, 0.18); */
     }
     header.sticky-active .site-logo a {
         font-size: 30px !important;
@@ -377,25 +362,23 @@ header:after {
     .main-nav {
         position: fixed;
         top: 0;
-        right: -100vw;
-        width: 300px;
+        right: -370px;
+        width: 350px;
         height: 100vh;
         background: #b388ff;
         flex-direction: column;
         justify-content: flex-start;
         padding: 80px 20px 20px;
-        transition: transform 0.3s ease-in-out;
-        z-index: 9998;
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        transform: translateX(100%);
     }
     
     .main-nav.active {
-        transform: translateX(0);
         right: 0;
     }
 
@@ -412,8 +395,14 @@ header:after {
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    /* Body lock saat menu terbuka */
     body.menu-open {
-        overflow: hidden;
+        overflow: hidden !important;
+    }
+    
+    .main-nav {
+        flex-direction: column;
+        gap: 15px;
     }
     
     .main-nav .search-widget {
@@ -423,49 +412,7 @@ header:after {
         padding: 0 10px;
     }
 }
-
-@media (max-width: 576px) {
-    .main-nav {
-        width: 100%;
-        padding: 80px 15px 20px;
-    }
-    
-    .main-nav .search-input {
-        padding: 12px 16px;
-        font-size: 12px;
-        width: 100% !important;
-    }
-
-    .main-nav .search-button {
-        padding: 10px 14px;
-    }
-
-    .main-nav ul {
-        gap: 4px;
-        width: 100% !important;
-        padding: 0 10px;
-    }
-    
-    .main-nav .btn-primary {
-        padding: 6px 12px;
-        font-size: 13px;
-        width: 100% !important;
-    }
-    
-    .main-nav a {
-        width: 100% !important;
-    }
-
-    .search-widget {
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
-    .search-input-group {
-        width: 100% !important;
-    }
-}
-
+/* Responsive Navigation */
 @media (max-width: 768px) {
     .main-nav .search-input {
         padding: 12px 16px;
@@ -2494,14 +2441,6 @@ footer::before {
     color: #9b4dff;
     border-color: rgba(155, 77, 255, 0.3);
     box-shadow: 0 3px 10px rgba(155, 77, 255, 0.1);
-}
-
-/* Container untuk sticky widget */
-.sticky-container {
-    position: sticky;
-    top: 110px;
-    height: fit-content;
-    z-index: 99;
 }
 
 @media (max-width: 992px) {
