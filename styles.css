@@ -5,7 +5,7 @@
 }
 
 .hero-image {
-    /* background-image: url('assets/background.jpg'); */
+    background-image: url('assets/background.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -24,7 +24,6 @@
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1px;
-    margin-top: -80px;
 }
 
 .hero-image::before {
@@ -36,9 +35,7 @@
     height: 100%;
     background: 
         url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(255,255,255,0.15)' fill-rule='evenodd'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='rgba(255,255,255,0.12)' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.7) 10%, rgba(255, 255, 255, 0.7) 45%, rgba(156, 39, 176, 0.7) 75%, rgba(103, 58, 183, 0.7) 100%),
-        url('assets/background.jpg');
+        url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='rgba(255,255,255,0.12)' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     background-position: center center, center center, center center, center center;
     background-size: 100px 100px, 80px 80px, 100% 100%, cover;
     background-blend-mode: soft-light, soft-light, screen, normal;
@@ -161,13 +158,13 @@
 /* Responsive Design */
 @media screen and (min-width: 992px) {
     .hero-image h1 {
-        font-size: 8rem;
+        font-size: 6rem;
     }
 }
 
 @media screen and (max-width: 576px) {
     .hero-image h1 {
-        font-size: 10em;
+        font-size: 8em;
         margin: 0 25px;
     }
 }
@@ -184,7 +181,7 @@
     }
     
     .hero-image h1 {
-        font-size: 7rem !important;
+        font-size: 5rem !important;
         margin-top: -150px;
         animation: float 5s ease-in-out infinite reverse;
     }
@@ -230,7 +227,7 @@
     }
     
     .hero-image h1 {
-        font-size: 8rem !important;
+        font-size: 6rem !important;
         margin-top: -80px;
         line-height: 0.7;
         text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 3px 3px 0 #38006b;
