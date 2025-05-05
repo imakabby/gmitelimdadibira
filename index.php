@@ -517,7 +517,7 @@ start_session();
             <div class="site-header">
                 <div class="site-logo">
                     <a href="<?php echo url_base() . 'beranda'; ?>">
-                        <span>GMIT Elim Dadibra</span>
+                        <span>Elim Dadibra</span>
                     </a>
                 </div>
                 <div style="display: flex; align-items: center; gap: 40px;">
