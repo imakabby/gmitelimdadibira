@@ -206,7 +206,7 @@ $categories = $stmt->fetchAll();
             <div class="site-header">
                 <div class="site-logo">
                     <a href="<?php echo url_base() . 'beranda'; ?>">
-                        <span>GMIT Elim Dadibra</span>
+                        <span>GMIT Elim Dadibira</span>
                     </a>
                 </div>
                 <div style="display: flex; align-items: center; gap: 40px;">
