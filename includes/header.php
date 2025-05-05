@@ -9,7 +9,6 @@ start_session();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-7436399062257055">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <!-- Style untuk mencegah transisi pada awal load -->

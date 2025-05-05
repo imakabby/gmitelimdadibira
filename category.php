@@ -20,7 +20,7 @@ $stmt->execute();
 $category = $stmt->fetch();
 
 if (!$category) {
-    header("Location: index");
+    header("Location: beranda");
     exit;
 }
 
@@ -227,6 +227,3 @@ include 'includes/header.php';
 </div>
 
 <?php include 'includes/footer.php'; ?>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055"
-     crossorigin="anonymous"></script>

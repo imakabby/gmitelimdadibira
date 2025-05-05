@@ -102,8 +102,6 @@ $latest_articles = $stmt->fetchAll();
 include 'includes/header.php';
 ?>
 
-<!-- <link rel="stylesheet" href="assets/css/search.css"> -->
-
 <!-- Running Text -->
 <div class="running-text">
     <div class="running-text-label">
@@ -242,12 +240,3 @@ include 'includes/header.php';
 </div>
 
 <?php include 'includes/footer.php'; ?>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055"
-     crossorigin="anonymous"></script>
-
-<?php
-// Fungsi highlight kata kunci
-function highlight($text, $words) {
-    return preg_replace('/(' . preg_quote($words, '/') . ')/i', '<mark>$1</mark>', $text);
-}

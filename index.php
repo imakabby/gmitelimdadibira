@@ -209,10 +209,6 @@ start_session();
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>" />
     <?php endif; ?>
 
-    <!-- Google AdSense dengan setup yang lebih baik -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="assets/css/search.css"> -->
-    <!-- Custom JS sudah ada di footer -->
 
     <script>
         // Toggle Menu untuk Mobile
@@ -517,7 +513,7 @@ start_session();
             <div class="site-header">
                 <div class="site-logo">
                     <a href="<?php echo url_base() . 'beranda'; ?>">
-                        <span>Elim Dadibra</span>
+                        <span>GMIT Elim Dadibra</span>
                     </a>
                 </div>
                 <div style="display: flex; align-items: center; gap: 40px;">
@@ -900,35 +896,6 @@ start_session();
                     <?php endif; ?>
                 </div>
 
-                <!-- Iklan AdSense di bawah daftar artikel -->
-                <div class="adsbygoogle-container" id="ads-container-1" style="margin: 30px 0;">
-                    <script>
-                        window.addEventListener('load', function() {
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        });
-                    </script>
-                    <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-format="autorelaxed"
-                        data-ad-client="ca-pub-7436399062257055"
-                        data-ad-slot="2433247719"></ins>
-                </div>
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    function hideEmptyAds(containerId) {
-                        var container = document.getElementById(containerId);
-                        if (!container) return;
-                        var ad = container.querySelector('.adsbygoogle');
-                        if (!ad) return;
-                        setTimeout(function() {
-                            if (ad.offsetHeight < 10 || ad.innerHTML.trim() === '') {
-                                container.style.display = 'none';
-                            }
-                        }, 2000);
-                    }
-                    hideEmptyAds('ads-container-1');
-                });
-                </script>
             </div>
         </div>
        
@@ -941,17 +908,5 @@ start_session();
 
 <?php include 'includes/footer.php'; ?>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055"
-     crossorigin="anonymous"></script>
-
-<!-- Script untuk dark mode -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Memastikan script dark mode parallax dijalankan
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'assets/js/script.js?v=' + new Date().getTime();
-        document.body.appendChild(scriptElement);
-    });
-</script>
 </body>
 </html>

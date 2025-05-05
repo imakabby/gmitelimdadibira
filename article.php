@@ -203,36 +203,6 @@ include 'includes/header.php';
                     <?php echo $article['content']; ?>
                 </div>
 
-                <!-- Iklan AdSense setelah artikel, sebelum komentar -->
-                <div class="adsbygoogle-container" id="ads-container-article" style="margin: 30px 0;">
-                    <script>
-                        window.addEventListener('load', function() {
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        });
-                    </script>
-                    <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-format="autorelaxed"
-                        data-ad-client="ca-pub-7436399062257055"
-                        data-ad-slot="2433247719"></ins>
-                </div>
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    function hideEmptyAds(containerId) {
-                        var container = document.getElementById(containerId);
-                        if (!container) return;
-                        var ad = container.querySelector('.adsbygoogle');
-                        if (!ad) return;
-                        setTimeout(function() {
-                            if (ad.offsetHeight < 10 || ad.innerHTML.trim() === '') {
-                                container.style.display = 'none';
-                            }
-                        }, 2000);
-                    }
-                    hideEmptyAds('ads-container-article');
-                });
-                </script>
-
                 <div class="article-meta-share" style="margin-top: 20px; padding-bottom: 10px;">
                     <div class="share-buttons">
                         <a href="https://wa.me/?text=<?php echo urlencode($article['title'] . ' - ' . current_url()); ?>" class="share-button whatsapp" target="_blank">
@@ -411,9 +381,6 @@ include 'includes/header.php';
         }
     });
 </script>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055"
-     crossorigin="anonymous"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
