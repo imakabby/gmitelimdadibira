@@ -361,14 +361,14 @@ header:after {
     .main-nav {
         position: fixed;
         top: 0;
-        left: -370px;
-        width: 350px;
+        left: -100vw;
+        width: 100vw;
         height: 100vh;
         background: #b388ff;
         flex-direction: column;
         justify-content: flex-start;
         padding: 80px 20px 20px;
-        transition: right 0.5s ease-in-out;
+        transition: left 0.5s ease-in-out;
         z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
