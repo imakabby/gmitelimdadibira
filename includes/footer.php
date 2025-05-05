@@ -42,7 +42,7 @@
                 
                 <div class="footer-section">
                     <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-envelope"></i> info@gmitelimdadibira.com</p>
+                    <p><i class="fas fa-envelope"></i> info@gmitelimdadibira.org</p>
                     <p><i class="fas fa-phone-alt"></i> +62 813 53 893 823</p>
                     <p><i class="fas fa-map-marker-alt"></i> Jl. W. J. Lalamentik No. 12 b, Kalabahi</p>
                 </div>

@@ -202,7 +202,7 @@ start_session();
     <?php endif; ?>
     
     <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'GMITElimDadibira.com'; ?>">
+    <meta itemprop="name" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'GMITElimDadibira.org'; ?>">
     <meta itemprop="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'GMIT Elim Dadibira adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.'; ?>">
     <?php if (isset($article) && !empty($article['image'])): ?>
     <meta itemprop="image" content="<?php echo htmlspecialchars($article['image']); ?>">
@@ -570,7 +570,7 @@ start_session();
     <?php
     // Mengambil data banner dari database
     $banner_image = '';
-    $banner_title = 'GMITElimDadibira.com';
+    $banner_title = 'GMITElimDadibira.org';
     $banner_description = 'Tempat Berbagi Informasi dan Pengalaman';
     $show_banner = false;
     $show_title = true;

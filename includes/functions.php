@@ -868,7 +868,7 @@ function delete_banner($banner_id) {
 function url_base() {
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://' : 'http://';
     // Hilangkan '/' di akhir host agar tidak double slash
-    $host = ($_SERVER['HTTP_HOST'] === 'gmitelimdadibira.org') ? 'gmitelimdadibira.com' : 'localhost';
+    $host = ($_SERVER['HTTP_HOST'] === 'gmitelimdadibira.org') ? 'gmitelimdadibira.org' : 'localhost';
     $path = dirname($_SERVER['PHP_SELF']);
     // Pastikan $path tidak hanya berisi '.' (artinya root)
     $path = ($path === '/' || $path === '\\' || $path === '.') ? '' : $path;
