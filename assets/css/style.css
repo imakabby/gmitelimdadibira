@@ -90,7 +90,7 @@ header {
         linear-gradient(195deg, #e4d1ff 10%, #b388ff 45%, #9b4dff 75%, #673ab7 100%);
     background-position: center center, center center, center center;
     background-size: 100px 100px, 80px 80px, 100% 100%;
-    /* background-blend-mode: soft-light; */
+    background-blend-mode: soft-light;
     box-shadow: 0 2px 15px rgba(255, 79, 0, 0.15);
     padding: 8px 0;
     position: -webkit-sticky;
@@ -124,7 +124,7 @@ header.sticky-active .site-logo a {
         padding: 3px 0;
     }
     header.sticky-active .site-logo a {
-        font-size: 30px !important;
+        font-size: 28px !important;
     }
 }
 
@@ -156,16 +156,6 @@ header:after {
     margin-right: -15px;
 }
 
-@media (max-width: 575px) {
-    .site-logo img {
-        padding: 0;
-        width: 60px !important;
-        height: 60px !important;
-        margin-left: -10px;
-        margin-right: -15px;
-    }
-}
-
 .site-logo a {
     color: #fff;
     text-decoration: none;
@@ -173,11 +163,11 @@ header:after {
     align-items: center;
     gap: 12px;
     font-family: "Kaushan Script", cursive;
-    font-size: 35px !important;
+    font-size: 40px;
     font-weight: 900;
     letter-spacing: 0.01px;
     position: relative;
-    padding: 0px;
+    padding: 0;
     border-radius: 8px;
     transition: all 0.3s ease;
     background: linear-gradient(45deg, #ff69b4, #ffb6c1, #ff1493, #9b4dff);
@@ -209,7 +199,7 @@ header:after {
         padding: 0 !important;
     }
     .site-logo a {
-        font-size: 35px !important;
+        font-size: 30px !important;
     }
 }
 
