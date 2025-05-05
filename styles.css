@@ -6,7 +6,7 @@
 
 .hero-image {
     background-image: url('assets/background.jpg');
-    height: 80vh;
+    height: 100vh !important;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -45,7 +45,7 @@
     transform: translateZ(-1px) scale(2);
     box-shadow: 0 2px 15px rgba(103, 58, 183, 0.3);
     z-index: -1;
-    animation: gradientMovement 15s ease infinite alternate, patternFloat 20s infinite linear;
+    animation: gradientMovement 15s ease infinite alternate, patternFloat 20s infinite linear !important;
 }
 
 @keyframes patternFloat {
@@ -85,26 +85,88 @@ body {
     transform-style: preserve-3d;
 }
 
+/* Animasi untuk teks - perbaikan agar berfungsi */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 6px 6px 0 #38006b;
+    }
+    50% {
+        text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 8px 8px 15px #9b4dff;
+    }
+}
+
+/* Perbaikan untuk animasi title */
+.title-welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    color: #fff;
+    font-size: 3rem !important;
+    will-change: transform;
+}
+
+/* Animasi yang terpisah dari transform lainnya */
 .hero-image h1 {
-    /* transform: translateZ(-0.5px) scale(1.5); */
+    /* transform: translateZ(-0.5px) scale(1.5) !important; */
     transform-origin: center center;
     position: relative;
     z-index: 2;
     font-family: "Euphoria Script", serif;
     color: #ecbd75;
-    font-size: 10rem !important;
-    text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 6px 6px 0 #38006b;
+    font-size: 8rem !important;
+    text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 2px 2px 0 #38006b;
     margin-top: -200px;
+    animation-name: float, glow !important;
+    animation-duration: 2s, 4s !important;
+    animation-timing-function: ease-in-out, ease-in-out !important;
+    animation-iteration-count: infinite, infinite !important;
+    animation-direction: normal, normal !important;
+    animation-fill-mode: both, both !important;
+    will-change: transform, text-shadow !important;
 }
 
 .hero-image h3 {
     z-index: 2;
-    color: #ca93b0;
+    color: #e476b0;
     font-size: 3rem !important;
     font-family: "Kaushan Script", cursive;
-    text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 4px 4px 0 #38006b;
+    text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 2px 2px 0 #38006b;
     margin-top: -60px;
     letter-spacing: 3px;
+    animation-name: float !important;
+    animation-duration: 6s !important;
+    animation-timing-function: ease-in-out !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: reverse !important;
+    animation-fill-mode: both !important;
+    will-change: transform !important;
+}
+
+/* Force animasi dengan layar minimal */
+@media screen and (min-width: 50px) {
+    .hero-image h1 {
+        animation-name: float, glow !important;
+        animation-duration: 6s, 4s !important;
+        animation-iteration-count: infinite, infinite !important;
+    }
+    
+    .hero-image h3 {
+        animation-name: float !important;
+        animation-duration: 6s !important;
+        animation-iteration-count: infinite !important;
+        animation-direction: reverse !important;
+    }
 }
 
 /* Responsive Design */
@@ -116,7 +178,7 @@ body {
 
 @media screen and (max-width: 576px) {
     .hero-image h1 {
-        font-size: 5em;
+        font-size: 10em;
         margin: 0 25px;
     }
 }
@@ -124,28 +186,30 @@ body {
 /* Responsive Hero Image */
 @media screen and (max-width: 992px) {
     .hero-image {
-        height: 80vh;
+        height: 100vh;
     }
     
     .hero-image::before {
-        background-attachment: scroll;
+        background-attachment: scroll !important;
         transform: none !important;
     }
     
     .hero-image h1 {
         font-size: 7rem !important;
         margin-top: -150px;
+        animation: float 5s ease-in-out infinite, glow 4s ease-in-out infinite;
     }
     
     .hero-image h3 {
         font-size: 2.5rem !important;
         margin-top: -50px;
+        animation: float 5s ease-in-out infinite reverse;
     }
 }
 
 @media screen and (max-width: 768px) {
     .hero-image {
-        height: 70vh;
+        height: 100vh;
     }
     
     .hero-image::before {
@@ -167,23 +231,30 @@ body {
 
 @media screen and (max-width: 576px) {
     .hero-image {
-        height: 60vh;
+        height: 100vh;
     }
     
     .hero-image::before {
         background-size: 60px 60px, 40px 40px, 100% 100%, cover;
+        background-attachment: scroll !important;
+        transform: none !important;
     }
     
     .hero-image h1 {
-        font-size: 4rem !important;
+        font-size: 8rem !important;
         margin-top: -80px;
+        line-height: 0.7;
         text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 3px 3px 0 #38006b;
+        margin-bottom: 60px;
     }
     
     .hero-image h3 {
-        font-size: 1.5rem !important;
+        font-size: 2rem !important;
         margin-top: -20px;
         letter-spacing: 1px;
+    }
+    .hero-image h3 span {
+        display: block;
     }
 }
 
@@ -202,19 +273,6 @@ body {
         margin-top: -10px;
     }
 }
-
-/* Parallax Fallback untuk perangkat yang tidak mendukung */
-@supports not (perspective: 1px) {
-    .hero-image {
-        transform-style: flat;
-    }
-    
-    .hero-image::before {
-        transform: none !important;
-        background-attachment: scroll;
-    }
-}
-
 /* Tambahkan parallax pada konten utama */
 .parallax-section {
     position: relative;
@@ -225,16 +283,3 @@ body {
     background-size: cover;
     height: 400px;
 }
-
-.title-welcome {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 2;
-    color: #fff;
-    font-size: 3rem !important;
-}
-
-
-

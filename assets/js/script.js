@@ -1,233 +1,163 @@
+// Fungsi untuk menyalin URL pada meta share
 function copyCurrentURL() {
     navigator.clipboard.writeText(window.location.href).then(() => {
         const button = document.querySelector('.copy-link');
         const originalIcon = button.innerHTML;
         
-        // Ganti icon dengan check
         button.innerHTML = '<i class="fas fa-check"></i>';
         button.style.background = '#28a745';
         
-        // Kembalikan ke icon semula setelah 2 detik
         setTimeout(() => {
             button.innerHTML = originalIcon;
             button.style.background = '#9b4dff';
         }, 2000);
     });
-} 
+}
 
-// Carousel untuk artikel pilihan
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const scrollContainer = document.querySelector('.pilihan-scrollable');
     const prevBtn = document.querySelector('.pilihan-prev');
     const nextBtn = document.querySelector('.pilihan-next');
-    
-    if (scrollContainer && prevBtn && nextBtn) {
-        // Hapus duplikasi yang mungkin sudah ada di DOM
-        const cleanupExistingClones = () => {
-            const existingClones = scrollContainer.querySelectorAll('.pilihan-clone, [data-clone="true"]');
-            existingClones.forEach(clone => {
-                clone.remove();
-            });
-        };
-        
-        // Bersihkan terlebih dahulu
-        cleanupExistingClones();
-        
-        // Setup infinite scroll
-        const setupInfiniteScroll = () => {
-            // Ambil semua item asli (bukan clone)
-            const items = Array.from(scrollContainer.querySelectorAll('.pilihan-item:not(.pilihan-clone):not([data-clone="true"])'));
-            
-            if (items.length > 0) {
-                // Kumpulkan semua slug yang sudah ada
-                const existingSlugs = new Set();
-                items.forEach(item => {
-                    const slug = item.getAttribute('data-slug');
-                    if (slug) existingSlugs.add(slug);
-                });
-                
-                // Clone beberapa item pertama dan tambahkan ke akhir untuk efek infinite
-                const cloneCount = Math.min(5, items.length);
-                for (let i = 0; i < cloneCount; i++) {
-                    // Tambahkan atribut data-clone pada elemen clone untuk membedakannya
-                    const clone = items[i].cloneNode(true);
-                    clone.classList.add('pilihan-clone');
-                    clone.setAttribute('data-clone', 'true');
-                    scrollContainer.appendChild(clone);
-                }
-            }
-        };
-        
-        // Panggil fungsi setup
-        setupInfiniteScroll();
-        
-        // Dapatkan total lebar konten yang dapat di-scroll
-        const getMaxScrollLeft = () => scrollContainer.scrollWidth - scrollContainer.clientWidth;
-        
-        // Auto scroll variables
-        let autoScrollInterval;
-        const scrollSpeed = 1; // Pixel per tick (lebih lambat untuk efek lebih mulus)
-        const scrollInterval = 20; // Milliseconds between ticks (lebih cepat untuk efek lebih mulus)
-        let autoScrollActive = true;
-        let isScrollingBack = false; // Flag untuk menentukan saat sedang scroll kembali ke awal
-        
-        // Fungsi untuk auto scroll
-        function startAutoScroll() {
-            if (autoScrollInterval) clearInterval(autoScrollInterval);
-            
-            autoScrollInterval = setInterval(() => {
-                if (!autoScrollActive) return;
-                
-                // Cek apakah sudah mencapai ujung kanan
-                const maxScrollLeft = getMaxScrollLeft();
-                
-                if (scrollContainer.scrollLeft >= maxScrollLeft - 5) {
-                    // Reset scroll ke awal dengan animasi mundur
-                    isScrollingBack = true;
-                    scrollContainer.scrollLeft = 0;
-                    isScrollingBack = false;
-                } else {
-                    // Scroll normal ke kanan
-                    scrollContainer.scrollLeft += scrollSpeed;
-                }
-            }, scrollInterval);
-        }
-        
-        // Mulai auto scroll saat halaman dimuat
-        startAutoScroll();
-        
-        // Hentikan auto scroll saat hover
-        scrollContainer.addEventListener('mouseenter', () => {
-            autoScrollActive = false;
-        });
-        
-        // Lanjutkan auto scroll saat mouse keluar
-        scrollContainer.addEventListener('mouseleave', () => {
-            autoScrollActive = true;
-        });
-        
-        // Tombol scroll ke kanan
-        nextBtn.addEventListener('click', function() {
-            // Hentikan auto scroll sementara
-            autoScrollActive = false;
-            
-            // Scroll manual
-            const itemWidth = scrollContainer.querySelector('.pilihan-item').offsetWidth;
-            const scrollDistance = itemWidth * 3 + 45; // Scroll 3 item (3 item width + 3 gaps)
-            
-            // Cek apakah kita sudah di akhir
-            const maxScrollLeft = getMaxScrollLeft();
-            
-            if (scrollContainer.scrollLeft + scrollDistance > maxScrollLeft) {
-                // Jika sudah mencapai akhir, kembali ke awal
-                scrollContainer.scrollTo({
-                    left: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                // Jika belum, scroll seperti biasa
-                scrollContainer.scrollBy({
-                    left: scrollDistance,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Set timer untuk melanjutkan auto scroll
-            setTimeout(() => {
-                autoScrollActive = true;
-            }, 2000); // Tunggu 2 detik setelah klik
-        });
-        
-        // Tombol scroll ke kiri
-        prevBtn.addEventListener('click', function() {
-            // Hentikan auto scroll sementara
-            autoScrollActive = false;
-            
-            // Scroll manual
-            const itemWidth = scrollContainer.querySelector('.pilihan-item').offsetWidth;
-            const scrollDistance = itemWidth * 3 + 45; // Scroll 3 item ke kiri
-            
-            // Cek apakah di awal
-            if (scrollContainer.scrollLeft < scrollDistance) {
-                // Jika sudah mencapai awal, pergi ke akhir
-                scrollContainer.scrollTo({
-                    left: getMaxScrollLeft(),
-                    behavior: 'smooth'
-                });
-            } else {
-                // Jika belum, scroll seperti biasa
-                scrollContainer.scrollBy({
-                    left: -scrollDistance,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Set timer untuk melanjutkan auto scroll
-            setTimeout(() => {
-                autoScrollActive = true;
-            }, 2000); // Tunggu 2 detik setelah klik
-        });
-        
-        // Touch events handling untuk mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        scrollContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            autoScrollActive = false;
-        }, {passive: true});
-        
-        scrollContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            
-            // Deteksi arah swipe
-            const swipeDistance = touchStartX - touchEndX;
-            if (Math.abs(swipeDistance) > 50) {
-                if (swipeDistance > 0) {
-                    // Swipe kiri (next)
-                    nextBtn.click();
-                } else {
-                    // Swipe kanan (prev)
-                    prevBtn.click();
-                }
-            } else {
-                // Lanjutkan auto scroll setelah sentuhan selesai
-                setTimeout(() => {
-                    autoScrollActive = true;
-                }, 2000);
-            }
-        }, {passive: true});
-        
-        // Tangani scroll event
-        scrollContainer.addEventListener('scroll', function() {
-            if (isScrollingBack) return;
-            
-            // Cek apakah di awal atau di akhir untuk button visibility
-            checkButtons();
-        });
-        
-        // Sembunyikan tombol navigasi jika tidak diperlukan
-        function checkButtons() {
-            // Tombol prev hanya disembunyikan di awal
-            if (scrollContainer.scrollLeft <= 10) {
-                prevBtn.style.opacity = '0.3';
-            } else {
-                prevBtn.style.opacity = '0.7';
-            }
-            
-            // Tombol next tetap terlihat untuk infinite scroll
-            if (scrollContainer.scrollLeft >= getMaxScrollLeft() - 10) {
-                nextBtn.style.opacity = '0.3';
-            } else {
-                nextBtn.style.opacity = '0.7';
-            }
-        }
-        
-        // Periksa tombol saat halaman dimuat
-        checkButtons();
-        
-        // Periksa tombol saat window diresize
-        window.addEventListener('resize', checkButtons);
-    }
-}); 
 
+    if (!scrollContainer || !prevBtn || !nextBtn) return;
+
+    // Setup infinite scroll
+    const setupInfiniteScroll = () => {
+        const items = Array.from(scrollContainer.querySelectorAll('.pilihan-item:not(.pilihan-clone)'));
+        items.slice(0, Math.min(5, items.length)).forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.classList.add('pilihan-clone');
+            scrollContainer.appendChild(clone);
+        });
+    };
+
+    // Hapus clone yang ada dan setup ulang
+    scrollContainer.querySelectorAll('.pilihan-clone').forEach(clone => clone.remove());
+    setupInfiniteScroll();
+
+    // Variabel auto scroll
+    let autoScrollActive = true;
+    const scrollSpeed = 1;
+    const scrollInterval = 20;
+
+    // Auto scroll
+    const startAutoScroll = () => {
+        const interval = setInterval(() => {
+            if (!autoScrollActive) return;
+            const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            scrollContainer.scrollLeft = scrollContainer.scrollLeft >= maxScrollLeft - 5
+                ? 0
+                : scrollContainer.scrollLeft + scrollSpeed;
+        }, scrollInterval);
+        return interval;
+    };
+
+    let autoScrollInterval = startAutoScroll();
+
+    // Toggle auto scroll on hover
+    scrollContainer.addEventListener('mouseenter', () => autoScrollActive = false);
+    scrollContainer.addEventListener('mouseleave', () => autoScrollActive = true);
+
+    // Manual scroll
+    const scrollByItems = (direction) => {
+        autoScrollActive = false;
+        clearInterval(autoScrollInterval);
+
+        const itemWidth = scrollContainer.querySelector('.pilihan-item').offsetWidth;
+        const scrollDistance = itemWidth * 3 + 45;
+        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+        let targetScroll;
+        if (direction === 'next') {
+            targetScroll = scrollContainer.scrollLeft + scrollDistance > maxScrollLeft
+                ? 0
+                : scrollContainer.scrollLeft + scrollDistance;
+        } else {
+            targetScroll = scrollContainer.scrollLeft < scrollDistance
+                ? maxScrollLeft
+                : scrollContainer.scrollLeft - scrollDistance;
+        }
+
+        scrollContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
+        setTimeout(() => {
+            autoScrollActive = true;
+            autoScrollInterval = startAutoScroll();
+        }, 2000);
+    };
+
+    // Tombol navigasi
+    nextBtn.addEventListener('click', () => scrollByItems('next'));
+    prevBtn.addEventListener('click', () => scrollByItems('prev'));
+
+    // Touch support
+    let touchStartX = 0;
+    scrollContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        autoScrollActive = false;
+    }, { passive: true });
+
+    scrollContainer.addEventListener('touchend', (e) => {
+        const swipeDistance = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(swipeDistance) > 50) {
+            scrollByItems(swipeDistance > 0 ? 'next' : 'prev');
+        } else {
+            setTimeout(() => autoScrollActive = true, 2000);
+        }
+    }, { passive: true });
+
+    // Update tombol navigasi
+    const updateButtons = () => {
+        prevBtn.style.opacity = scrollContainer.scrollLeft <= 10 ? '0.3' : '0.7';
+        nextBtn.style.opacity = scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth - 10) ? '0.3' : '0.7';
+    };
+
+    scrollContainer.addEventListener('scroll', updateButtons);
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+});
+
+// * MEMBUAT TOMBOL NAVIGASI ----
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    
+    // Animasi untuk hamburger menu
+    const spans = menuToggle.querySelectorAll('span');
+    spans[0].classList.toggle('rotate-45');
+    spans[1].classList.toggle('opacity-0');
+    spans[2].classList.toggle('rotate-negative-45');
+});
+
+// ? Tambahkan CSS untuk animasi hamburger
+const style = document.createElement('style');
+style.textContent = `
+    .rotate-45 {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .opacity-0 {
+        opacity: 0;
+    }
+    
+    .rotate-negative-45 {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+`;
+document.head.appendChild(style); 
+
+// Tambahkan listener untuk dark mode toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggles = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+    
+    darkModeToggles.forEach(function(toggle) {
+        toggle.addEventListener('change', function() {
+            // Tunggu sebentar untuk memastikan class dark-mode sudah diterapkan
+            setTimeout(function() {
+                // Trigger scroll event untuk memperbarui efek parallax
+                window.dispatchEvent(new Event('scroll'));
+            }, 50);
+        });
+    });
+}); 

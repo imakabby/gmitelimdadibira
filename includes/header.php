@@ -438,8 +438,8 @@ start_session();
             <div class="site-header">
                 <div class="site-logo">
                     <a href="<?php echo url_base() . 'beranda'; ?>">
-                        <img src="<?php echo url_base() . 'assets/images/logo.png'; ?>" alt="Logo LangkahKata.com" style="width: 70px; height: 70px; padding: 0;">
-                        <span>LangkahKata.</span>
+                        <!-- <img src="<?php echo url_base() . 'assets/images/logo.png'; ?>" alt="Logo LangkahKata.com" style="width: 70px; height: 70px; padding: 0;"> -->
+                        <span>GMIT Elim Dadibira</span>
                     </a>
                 </div>
                 <div style="display: flex; align-items: center; gap: 40px;">
@@ -469,7 +469,7 @@ start_session();
                     <div class="search-widget">
                         <form action="<?php echo url_base() . 'cari'; ?>" method="get" class="search-form">
                             <div class="search-input-group">
-                                <input type="text" name="q" class="search-input" placeholder="Cari berita dan artikel..." required>
+                                <input type="text" name="q" class="search-input" placeholder="Cari artikel..." required>
                                 <button type="submit" class="search-button">
                                     <i class="fas fa-search"></i>
                                 </button>

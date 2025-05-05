@@ -175,26 +175,21 @@ body.dark-mode .default-banner {
   background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
 }
 
-body.dark-mode .banner-content {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
 /* Pilihan Editor dark mode */
 body.dark-mode .pilihan-title {
   color: var(--dark-text-color);
 }
 
 body.dark-mode .pilihan-category {
-  background-color: #f15619;
+  background-color: #ff1493;
 }
 
 body.dark-mode .pilihan-nav {
-  background-color: #f15619;
   color: #fff;
 }
 
 body.dark-mode .pilihan-nav:hover {
-  background-color: #f15619 !important;
+  background-color: #ff1493 !important;
 }
 
 /* Sidebar dark mode - Perbaikan dan penambahan */
@@ -206,17 +201,6 @@ body.dark-mode .sidebar-widget {
   border: 1px solid rgba(50, 50, 55, 0.8);
   overflow: hidden;
   position: relative;
-}
-
-body.dark-mode .sidebar-widget:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ffc649, #ff6b2b, #f15619);
-  opacity: 0.85;
 }
 
 body.dark-mode .sidebar-widget h3 {
@@ -231,7 +215,7 @@ body.dark-mode .sidebar-widget h3::after {
   left: 0;
   width: 70px;
   height: 2px;
-  background: linear-gradient(to right, #ff6b2b, #f15619);
+  /* background: linear-gradient(to right, #ff1493, #f15619); */
 }
 
 /* Recent posts styling dalam dark mode */
@@ -257,7 +241,7 @@ body.dark-mode .recent-posts a {
 }
 
 body.dark-mode .recent-posts a:hover {
-  color: #ff8a50;
+  color: #ff1493;
 }
 
 body.dark-mode .post-date {
@@ -280,7 +264,7 @@ body.dark-mode .category-list a {
 
 body.dark-mode .category-list a:hover {
   background-color: rgba(60, 60, 70, 0.5);
-  color: #ff8a50;
+  color: #ff1493;
 }
 
 body.dark-mode .category-list .count {
@@ -291,7 +275,7 @@ body.dark-mode .category-list .count {
 
 body.dark-mode .category-list a:hover .count {
   background-color: rgba(241, 86, 25, 0.2);
-  color: #ff8a50;
+  color: #ff1493;
 }
 
 /* Popular posts dengan gambar */

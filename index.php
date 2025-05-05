@@ -27,6 +27,15 @@ $total_articles = $stmt->fetch()['total'];
 // Calculate total pages
 $total_pages = ceil($total_articles / $per_page);
 
+// Get latest articles for running text
+$sql_latest = "SELECT id, title, slug, created_at FROM articles 
+               WHERE status = 'published' 
+               ORDER BY created_at DESC 
+               LIMIT 5";
+$stmt_latest = $pdo->prepare($sql_latest);
+$stmt_latest->execute();
+$latest_articles = $stmt_latest->fetchAll();
+
 // Get published articles for current page
 if ($column_exists) {
     $sql = "SELECT a.*, c.name as category_name, u.name as author 
@@ -542,7 +551,7 @@ start_session();
                     <div class="search-widget">
                         <form action="<?php echo url_base() . 'cari'; ?>" method="get" class="search-form">
                             <div class="search-input-group">
-                                <input type="text" name="q" class="search-input" placeholder="Cari berita dan artikel..." required>
+                                <input type="text" name="q" class="search-input" placeholder="Cari artikel..." required>
                                 <button type="submit" class="search-button">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -627,7 +636,7 @@ start_session();
     <div class="hero-image parallax-effect" data-speed="0.5">
         <div class="title-welcome">
             <h1>Selamat Datang</h1>
-            <h3>di Website Resmi GMIT Elim Dadibra</h3>
+            <h3>di Website Resmi <span>GMIT Elim Dadibra<span></h3>
         </div>
     </div>
 </div>
@@ -657,6 +666,28 @@ start_session();
     <?php endif; ?>
 
 <div class="container main-container">
+
+<!-- Running Text -->
+<div class="running-text">
+    <div class="running-text-label">
+        <span>Berita Terbaru:</span>
+    </div>
+    <div class="running-text-content">
+        <p>
+            <?php if (!empty($latest_articles)): ?>
+                <?php foreach ($latest_articles as $latest): ?>
+                    <a href="<?php echo url_base(); ?>artikel/<?php echo $latest['slug']; ?>">
+                        <?php echo htmlspecialchars($latest['title']); ?>
+                        <small>(<?php echo waktuYangLalu($latest['created_at']); ?>)</small>
+                    </a>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <a href="#">Belum ada artikel terbaru</a>
+            <?php endif; ?>
+        </p>
+    </div>
+</div>
+
 <!-- Headline News Section -->
 <?php if ($page < 2 && !empty($articles)): ?>
 <div class="headline-section">
@@ -904,7 +935,6 @@ start_session();
                 </script>
             </div>
         </div>
-
        
         <!-- Sidebar -->
         <div class="col-md-4">
@@ -917,5 +947,15 @@ start_session();
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055"
      crossorigin="anonymous"></script>
+
+<!-- Script untuk dark mode -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Memastikan script dark mode parallax dijalankan
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'assets/js/script.js?v=' + new Date().getTime();
+        document.body.appendChild(scriptElement);
+    });
+</script>
 </body>
 </html>

@@ -6,8 +6,8 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-logo">
-                <img src="<?php echo url_base() . 'assets/images/logo.png'; ?>" alt="Logo LangkahKata.com" style="width: 70px; height: 70px;">
-                <a href="<?php echo url_base(); ?>index">LangkahKata.</a>
+                <!-- <img src="<?php echo url_base() . 'assets/images/logo.png'; ?>" alt="Logo LangkahKata.com" style="width: 70px; height: 70px;"> -->
+                <a href="<?php echo url_base(); ?>index">GMIT Elim Dadibira</a>
             </div>
             
             <div class="footer-newsletter">
@@ -29,7 +29,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Tentang Kami</h3>
-                    <p>LangkahKata.com adalah portal berita dan artikel menarik yang menyajikan informasi dari berbagai kategori seperti kesehatan, pendidikan, teknologi, olahraga, dan hiburan.</p>
+                    <p>GMIT Elim Dadibira adalah gereja yang berada di Klasis Alor Barat Laut (ABAL), tepatnya di Desa Pura Utara, Kecamatan Pulau Pura, Kabupaten Alor, Nusa Tenggara Timur.</p>
                 </div>
                 
                 <div class="footer-section">
@@ -43,14 +43,14 @@
                 
                 <div class="footer-section">
                     <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-envelope"></i> info@langkahkata.com</p>
+                    <p><i class="fas fa-envelope"></i> info@gmitelimdadibira.com</p>
                     <p><i class="fas fa-phone-alt"></i> +62 813 53 893 823</p>
                     <p><i class="fas fa-map-marker-alt"></i> Jl. W. J. Lalamentik No. 12 b, Kalabahi</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> LangkahKata. Hak Cipta Dilindungi.</p>
+                <p>&copy; <?php echo date('Y'); ?> GMIT Elim Dadibira. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
