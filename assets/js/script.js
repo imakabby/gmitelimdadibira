@@ -157,3 +157,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cek scroll saat halaman dimuat
     checkScroll();
 }); 
+
+// Fungsi untuk mengatur tinggi viewport yang benar
+function setViewportHeight() {
+    // Dapatkan tinggi viewport yang sebenarnya
+    let vh = window.innerHeight * 0.01;
+    // Atur variabel CSS custom --vh
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Jalankan saat halaman dimuat
+setViewportHeight();
+
+// Jalankan saat ukuran window berubah atau orientasi berubah
+window.addEventListener('resize', () => {
+    setViewportHeight();
+});
+
+// Tambahan untuk iOS Safari
+window.addEventListener('orientationchange', () => {
+    // Tunggu sebentar untuk memastikan ukuran viewport sudah diperbarui
+    setTimeout(() => {
+        setViewportHeight();
+    }, 100);
+}); 

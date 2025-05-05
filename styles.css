@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Oleo+Script+Swash+Caps:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yesteryear&display=swap');
+
+/* Tambahan CSS untuk iOS viewport height fix */
+:root {
+    --vh: 1vh;
+}
+
 .container-fluid {
     margin: 0 auto;
 }
 
 .hero-image {
     background-image: url('assets/background.jpg');
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -16,7 +23,6 @@
     color: white;
     text-align: center;
     position: relative;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +31,9 @@
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .hero-image::before {
@@ -271,4 +280,27 @@
     top: 110px;
     height: fit-content;
     z-index: 100;
+}
+
+/* Tambahan media query untuk iPhone */
+@media screen and (max-width: 428px) and (-webkit-device-pixel-ratio: 3) {
+    .hero-image {
+        height: 100vh; /* Fallback */
+        height: calc(var(--vh, 1vh) * 100);
+        min-height: -webkit-fill-available;
+    }
+    
+    .hero-image::before {
+        transform: none;
+        -webkit-transform: none;
+    }
+}
+
+/* Tambahan untuk orientasi landscape di iPhone */
+@media screen and (orientation: landscape) and (max-height: 428px) {
+    .hero-image {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        min-height: -webkit-fill-available;
+    }
 }
