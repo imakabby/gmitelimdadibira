@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
-$db   = 'u545696814_news_website';
-$user = 'u545696814_imakabby_news';
+$db   = 'u545696814_elimdadibira';
+$user = 'u545696814_imakabby_gmit';
 $pass = 'Imanuel31#@';
 $charset = 'utf8mb4';
 
