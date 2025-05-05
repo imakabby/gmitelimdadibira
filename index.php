@@ -373,7 +373,7 @@ $categories = $stmt->fetchAll();
     </div>
 </div>
 
-<!-- Headline News Section -->
+<!-- Headline News Sect
 <?php if ($page < 2 && !empty($articles)): ?>
 <div class="headline-section">
     <div class="headline-grid">
@@ -409,10 +409,12 @@ $categories = $stmt->fetchAll();
     </div>
 </div>
 <?php endif ?>
+ion -->
+
 
 <!-- Regular News Section -->
 <div class="container">
-
+<!-- 
 <?php if ($page < 2 && !empty($articles)): ?>
 <div class="col-md-12">
     <div style="margin: 0 -15px 20px -15px; padding: 0 !important; box-shadow: none !important;">
@@ -502,7 +504,7 @@ $categories = $stmt->fetchAll();
             </div>
         </div>
         </div>
-<?php endif; ?>
+<?php endif; ?> -->
 
     <div class="row">
 
