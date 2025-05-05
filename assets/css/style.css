@@ -99,6 +99,7 @@ header {
     background-attachment: scroll !important;
     box-shadow: 0 2px 15px rgba(255, 79, 0, 0.15);
     padding: 8px 0;
+    position: -webkit-sticky !important;
     position: sticky !important;
     top: 0;
     z-index: 1500 !important;
@@ -108,16 +109,24 @@ header {
     will-change: transform;
     backface-visibility: hidden;
     animation: gradientMovement 15s ease infinite alternate, patternFloat 20s infinite linear !important;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+/* Tambahkan media query khusus untuk mobile */
+@media (max-width: 767px) {
+    header {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 0 !important;
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
 }
 
 header.sticky-active {
     padding: 5px 0;
     box-shadow: 0 3px 20px rgba(255, 79, 0, 0.25);
-}
-
-header.sticky-active .site-logo img {
-    width: 50px !important;
-    height: 50px !important;
 }
 
 header.sticky-active .site-logo a {
