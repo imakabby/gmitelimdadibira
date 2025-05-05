@@ -85,15 +85,24 @@ start_session();
     <?php endif; ?>
     
     <!-- Open Graph meta tags untuk media sosial -->
-    <?php if (isset($page_title) && isset($page_description)): ?>
-    <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
-    <meta property="og:description" content="<?php echo htmlspecialchars($page_description); ?>">
-    <meta property="og:type" content="article">
+    <meta property="og:title" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'GMIT Elim Dadibira'; ?>">
+    <meta property="og:description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'GMIT Elim Dadibira adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.'; ?>">
+    <meta property="og:type" content="<?php echo isset($article) ? 'article' : 'website'; ?>">
     <meta property="og:url" content="<?php echo current_url(); ?>">
     <?php if (isset($article) && !empty($article['image'])): ?>
-    <meta property="og:image" content="<?php echo htmlspecialchars($article['image']); ?>">
+    <meta property="og:image" content="<?php 
+        $image_url = $article['image'];
+        // Pastikan URL gambar absolut
+        if (!filter_var($image_url, FILTER_VALIDATE_URL)) {
+            $image_url = rtrim(url_base(), '/') . '/' . ltrim($image_url, '/');
+        }
+        echo htmlspecialchars($image_url); 
+    ?>">
+    <?php else: ?>
+    <meta property="og:image" content="<?php echo rtrim(url_base(), '/') . '/assets/images/logo.png'; ?>">
     <?php endif; ?>
-    <?php endif; ?>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
