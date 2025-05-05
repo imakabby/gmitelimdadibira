@@ -115,6 +115,15 @@ header {
     -webkit-transform: translate3d(0,0,0);
 }
 
+@keyframes patternFloat {
+    from {
+        background-position: 0% 0%, 0% 0%, center center, center center;
+    }
+    to {
+        background-position: 100% 100%, 20% 50%, center center, center center;
+    }
+}
+
 header:after {
     content: '';
     position: absolute;
