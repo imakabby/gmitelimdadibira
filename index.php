@@ -90,7 +90,7 @@ $categories = $stmt->fetchAll();
     <?php if (isset($page_description)): ?>
         <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>">
     <?php else: ?>
-        <meta name="description" content="GMIT Elim Dadibira adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.">
+        <meta name="description" content="Selamat Datang di Website Resmi GMIT Elim Dadibira.">
     <?php endif; ?>
     
     <?php if (isset($page_title)): ?>
@@ -103,8 +103,8 @@ $categories = $stmt->fetchAll();
         <link rel="icon" href="<?php echo htmlspecialchars($favicon); ?>" type="image/x-icon">
         <link rel="shortcut icon" href="<?php echo htmlspecialchars($favicon); ?>" type="image/x-icon">
     <?php else: ?>
-        <link rel="icon" href="<?php echo url_base() . 'assets/images/logo.png'; ?>" type="image/x-icon">
-        <link rel="shortcut icon" href="<?php echo url_base() . 'assets/images/logo.png'; ?>" type="image/x-icon">
+        <link rel="icon" href="<?php echo url_base() . 'assets/background.jpg'; ?>" type="image/x-icon">
+        <link rel="shortcut icon" href="<?php echo url_base() . 'assets/background.jpg'; ?>" type="image/x-icon">
     <?php endif; ?>
     
     <!-- Open Graph meta tags untuk media sosial -->
@@ -114,7 +114,7 @@ $categories = $stmt->fetchAll();
         <meta property="og:type" content="article">
         <meta property="og:url" content="<?php echo current_url(); ?>">
         <?php if (isset($article) && !empty($article['image'])): ?>
-            <meta property="og:image" content="<?php echo htmlspecialchars($article['image']); ?>">
+            <meta property="og:image" content="<?php echo url_base() . 'assets/background.jpg'; ?>">
         <?php endif; ?>
     <?php endif; ?>
     
@@ -137,15 +137,15 @@ $categories = $stmt->fetchAll();
         <meta name="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
         <meta name="twitter:description" content="<?php echo htmlspecialchars($page_description); ?>">
         <?php if (isset($article) && !empty($article['image'])): ?>
-            <meta name="twitter:image" content="<?php echo htmlspecialchars($article['image']); ?>">
+            <meta name="twitter:image" content="<?php echo url_base() . 'assets/background.jpg'; ?>">
         <?php endif; ?>
     <?php endif; ?>
     
     <!-- Google / Search Engine Tags -->
     <meta itemprop="name" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'GMITElimDadibira.org'; ?>">
-    <meta itemprop="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'GMIT Elim Dadibira adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.'; ?>">
+    <meta itemprop="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'Selamat Datang di Website Resmi GMIT Elim Dadibira.'; ?>">
     <?php if (isset($article) && !empty($article['image'])): ?>
-        <meta itemprop="image" content="<?php echo htmlspecialchars($article['image']); ?>">
+        <meta itemprop="image" content="<?php echo url_base() . 'assets/background.jpg'; ?>">
     <?php endif; ?>
     
     <?php if (isset($canonical_url)): ?>
