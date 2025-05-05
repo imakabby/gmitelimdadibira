@@ -1365,7 +1365,7 @@ a:hover {
 }
 
 .sidebar-header {
-  font-size: 20px;
+  font-size: 15px !important;
   font-weight: bold;
   padding: 13px 0 !important;
 }
@@ -1384,7 +1384,7 @@ a:hover {
   align-items: center;
   gap: 12px;
   font-family: "Kaushan Script", cursive;
-  font-size: 30px !important;
+  font-size: 25px !important;
   font-weight: 900;
   /* text-transform: uppercase; */
   letter-spacing: 0.01px;

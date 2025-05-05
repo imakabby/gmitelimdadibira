@@ -30,7 +30,7 @@ if (!isset($current_user) && isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Portal Berita</title>
+    <title>Admin Dashboard - GMIT Elim Dadibira</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -57,8 +57,7 @@ if (!isset($current_user) && isset($_SESSION['user_id'])) {
         <div class="admin-sidebar" id="sidebar" style="display: flex; flex-direction: column; justify-content: space-between;">
             <div>
                 <div class="sidebar-header" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="<?php echo url_base2(); ?>assets/images/logo.png" alt="Logo Langkahkata.com" style="width: 50px; height: 50px; padding: 0;">
-                    <a href="<?php echo url_base2(); ?>admin/dashboard"><span>LangkahKata.</span></a>
+                    <a href="<?php echo url_base2(); ?>admin/dashboard"><span>GMIT Elim Dadibira</span></a>
                 </div>
                 
                 <div class="sidebar-menu">
