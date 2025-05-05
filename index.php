@@ -150,13 +150,13 @@ start_session();
     <?php if (isset($page_description)): ?>
     <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>">
     <?php else: ?>
-    <meta name="description" content="LangkahKata.com adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.">
+    <meta name="description" content="GMIT Elim Dadibira adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.">
     <?php endif; ?>
     
     <?php if (isset($page_title)): ?>
     <title><?php echo htmlspecialchars($page_title); ?></title>
     <?php else: ?>
-    <title>LangkahKata.com</title>
+    <title>GMIT Elim Dadibira</title>
     <?php endif; ?>
     
     <?php if (isset($favicon)): ?>
@@ -202,8 +202,8 @@ start_session();
     <?php endif; ?>
     
     <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'LangkahKata.com'; ?>">
-    <meta itemprop="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'LangkahKata.com adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.'; ?>">
+    <meta itemprop="name" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'GMITElimDadibira.com'; ?>">
+    <meta itemprop="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'GMIT Elim Dadibira adalah website yang menyediakan berita dan artikel terkini seputar kalabahi dan sekitarnya.'; ?>">
     <?php if (isset($article) && !empty($article['image'])): ?>
     <meta itemprop="image" content="<?php echo htmlspecialchars($article['image']); ?>">
     <?php endif; ?>
@@ -520,7 +520,6 @@ start_session();
             <div class="site-header">
                 <div class="site-logo">
                     <a href="<?php echo url_base() . 'beranda'; ?>">
-                        <!-- <img src="<?php echo url_base() . 'assets/images/logo.png'; ?>" alt="Logo LangkahKata.com" style="width: 70px; height: 70px; padding: 0;"> -->
                         <span>GMIT Elim Dadibra</span>
                     </a>
                 </div>
@@ -571,7 +570,7 @@ start_session();
     <?php
     // Mengambil data banner dari database
     $banner_image = '';
-    $banner_title = 'LangkahKata.com';
+    $banner_title = 'GMITElimDadibira.com';
     $banner_description = 'Tempat Berbagi Informasi dan Pengalaman';
     $show_banner = false;
     $show_title = true;

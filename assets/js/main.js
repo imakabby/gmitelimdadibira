@@ -1,5 +1,5 @@
 /**
- * Main JavaScript file untuk LangkahKata.com
+ * Main JavaScript 
  * Menangani fungsionalitas iklan, navigasi, dan interaksi pengguna
  */
 

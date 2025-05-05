@@ -48,7 +48,7 @@ if (!$article) {
 }
 
 // Siapkan variabel untuk header
-$page_title = $article['title'] . ' - LangkahKata.com';
+$page_title = $article['title'] . ' - GMIT Elim Dadibira';
 
 // Buat meta description dari excerpt atau content
 $excerpt = strip_tags($article['content']);
@@ -394,7 +394,7 @@ include 'includes/header.php';
     document.addEventListener('DOMContentLoaded', function() {
         const content = document.querySelector('.article-content');
         const firstParagraph = content.querySelector('p:first-child');
-        const alamatText = "LangkahKata.com, Kalabahi - ";
+        const alamatText = "GMIT Elim Dadibira, Kalabahi - ";
         
         if (firstParagraph) {
             // Cek apakah paragraf pertama sudah mengandung alamat

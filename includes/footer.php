@@ -6,7 +6,6 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-logo">
-                <!-- <img src="<?php echo url_base() . 'assets/images/logo.png'; ?>" alt="Logo LangkahKata.com" style="width: 70px; height: 70px;"> -->
                 <a href="<?php echo url_base(); ?>index">GMIT Elim Dadibira</a>
             </div>
             

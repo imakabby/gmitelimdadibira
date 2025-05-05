@@ -83,7 +83,7 @@ if (!isset($current_user) && isset($_SESSION['user_id'])) {
             
             <div class="sidebar-footer">
                 <a href="<?php echo url_base2(); ?>logout"><i class="fas fa-sign-out-alt"></i> Keluar</a>
-                <div class="version">LangkahKata v1.0</div>
+                <div class="version">GMIT Elim Dadibira v1.0</div>
             </div>
         </div>
         

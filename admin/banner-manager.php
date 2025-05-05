@@ -30,7 +30,7 @@ $banner = get_banner();
 if (!$banner) {
     $banner = [
         'id' => '',
-        'title' => 'LangkahKata.com',
+        'title' => 'GMIT Elim Dadibira',
         'description' => 'Tempat Berbagi Informasi dan Pengalaman',
         'image_url' => '',
         'is_active' => 1,

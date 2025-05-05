@@ -18,7 +18,7 @@ try {
     // Otomatis buat tabel banners jika belum ada
     $sql = "CREATE TABLE IF NOT EXISTS banners (
         id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255) NOT NULL DEFAULT 'LangkahKata.com',
+        title VARCHAR(255) NOT NULL DEFAULT 'GMIT Elim Dadibira',
         description VARCHAR(255) NOT NULL DEFAULT 'Tempat Berbagi Informasi dan Pengalaman',
         image_url VARCHAR(255) NOT NULL DEFAULT '',
         is_active TINYINT(1) NOT NULL DEFAULT 1,
@@ -41,7 +41,7 @@ try {
             VALUES (:title, :description, :image_url, :is_active, NOW(), NOW())");
         
         $stmt->execute([
-            'title' => 'LangkahKata.com',
+            'title' => 'GMIT Elim Dadibira',
             'description' => 'Tempat Berbagi Informasi dan Pengalaman',
             'image_url' => '',
             'is_active' => 1
@@ -63,7 +63,7 @@ try {
             // Buat tabel banners
             $sql = "CREATE TABLE IF NOT EXISTS banners (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                title VARCHAR(255) NOT NULL DEFAULT 'LangkahKata.com',
+                title VARCHAR(255) NOT NULL DEFAULT 'GMIT Elim Dadibira',
                 description VARCHAR(255) NOT NULL DEFAULT 'Tempat Berbagi Informasi dan Pengalaman',
                 image_url VARCHAR(255) NOT NULL DEFAULT '',
                 is_active TINYINT(1) NOT NULL DEFAULT 1,
@@ -81,7 +81,7 @@ try {
                 VALUES (:title, :description, :image_url, :is_active, NOW(), NOW())");
             
             $stmt->execute([
-                'title' => 'LangkahKata.com',
+                'title' => 'GMIT Elim Dadibira',
                 'description' => 'Tempat Berbagi Informasi dan Pengalaman',
                 'image_url' => '',
                 'is_active' => 1
