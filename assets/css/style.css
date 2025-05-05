@@ -84,7 +84,7 @@ img {
     }
 }
 /* Header Styles */
-header {
+header:not(.tetap) {
     background: transparent;
     padding: 4px 0;
     position: fixed;
