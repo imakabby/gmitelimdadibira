@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Oleo+Script+Swash+Caps:wght@400;700&display=swap');
 
 .container-fluid {
-    margin: 0 auto !important;
+    margin: 0 auto;
 }
 
 .hero-image {
     background-image: url('assets/background.jpg');
-    height: 100vh !important;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -68,22 +68,6 @@
         background-position: center center, center center, center center, center center;
     }
 }
-
-/* Pastikan tidak ada konflik dengan sticky header */
-/* html {
-    scroll-behavior: smooth;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-body {
-    min-height: 100%;
-    perspective: 1px;
-    transform-style: preserve-3d;
-    overflow-x: hidden;
-    position: relative;
-} */
 
 .hero-image {
     transform-style: preserve-3d;

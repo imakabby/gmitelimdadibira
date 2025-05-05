@@ -90,26 +90,24 @@ header {
         linear-gradient(195deg, #e4d1ff 10%, #b388ff 45%, #9b4dff 75%, #673ab7 100%);
     background-position: center center, center center, center center;
     background-size: 100px 100px, 80px 80px, 100% 100%;
-    background-blend-mode: soft-light;
-    background-attachment: scroll !important;
+    /* background-blend-mode: soft-light; */
     box-shadow: 0 2px 15px rgba(255, 79, 0, 0.15);
     padding: 8px 0;
-    position: -webkit-sticky !important;
-    position: sticky !important;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
-    z-index: 1500 !important;
-    border-bottom: none;
+    z-index: 1500 ;
     transition: all 0.3s ease;
     transform: translateZ(0);
     will-change: transform;
     backface-visibility: hidden;
-    animation: gradientMovement 15s ease infinite alternate, patternFloat 20s infinite linear !important;
+    animation: patternFloat 20s infinite linear;
     -webkit-transform: translate3d(0,0,0);
 }
 
 header.sticky-active {
     padding: 5px 0;
-    /* box-shadow: 0 3px 20px rgba(255, 79, 0, 0.25); */
+    box-shadow: 0 3px 20px rgba(255, 79, 0, 0.25);
 }
 
 header.sticky-active .site-logo img {
@@ -363,14 +361,14 @@ header:after {
     .main-nav {
         position: fixed;
         top: 0;
-        right: -370px;
+        left: -370px;
         width: 350px;
         height: 100vh;
         background: #b388ff;
         flex-direction: column;
         justify-content: flex-start;
         padding: 80px 20px 20px;
-        transition: right 0.3s ease-in-out;
+        transition: right 0.5s ease-in-out;
         z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
@@ -380,7 +378,7 @@ header:after {
     }
     
     .main-nav.active {
-        right: 0;
+        left: 0;
     }
 
     /* Animasi untuk toggle menu */
