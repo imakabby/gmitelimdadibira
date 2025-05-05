@@ -59,110 +59,7 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <!-- Custom script -->
-    <script src="<?php echo url_base(); ?>assets/js/script.js"></script>
-
-    <!-- AdSense Fix Script -->
-    <script>
-    (function() {
-        // Deteksi AdBlocker
-        function detectAdBlocker() {
-            return new Promise(resolve => {
-                const testAd = document.createElement('div');
-                testAd.className = 'adsbox';
-                testAd.style.cssText = 'position:absolute;opacity:0;pointer-events:none;z-index:-1;';
-                document.body.appendChild(testAd);
-                setTimeout(function() {
-                    const terdeteksi = testAd.offsetHeight === 0;
-                    testAd.remove();
-                    resolve(terdeteksi);
-                }, 100);
-            });
-        }
-
-        // Perbaiki container iklan kosong
-        function fixEmptyAdContainers() {
-            document.querySelectorAll('.adsbygoogle-container').forEach(container => {
-                const adElement = container.querySelector('.adsbygoogle');
-                if (!adElement || adElement.clientHeight < 10) {
-                    container.style.minHeight = '90px';
-                    container.style.height = 'auto';
-                    container.style.overflow = 'hidden';
-                    container.style.marginBottom = '20px';
-                    container.classList.add('ad-empty');
-                }
-            });
-        }
-
-        // Reload iklan jika gagal dimuat
-        function reloadAdsIfNeeded() {
-            document.querySelectorAll('.adsbygoogle').forEach(element => {
-                if ((element.innerHTML.trim() === '' || element.clientHeight < 10) && !element.dataset.reloaded) {
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                        element.dataset.reloaded = "1";
-                    } catch (e) {
-                        const parentContainer = element.closest('.adsbygoogle-container');
-                        if (parentContainer) fixEmptyAdContainers();
-                    }
-                }
-            });
-        }
-
-        // Perbaiki posisi footer
-        function fixFooterPosition() {
-            const footer = document.querySelector('.site-footer');
-            const main = document.querySelector('.main-container');
-            if (!footer) return;
-            const bodyHeight = document.body.offsetHeight;
-            const windowHeight = window.innerHeight;
-            if (bodyHeight < windowHeight) {
-                footer.style.position = 'fixed';
-                footer.style.bottom = '0';
-                footer.style.left = '0';
-                footer.style.width = '100%';
-                if (main) main.style.paddingBottom = footer.offsetHeight + 'px';
-            } else {
-                footer.style.position = 'relative';
-                if (main) main.style.paddingBottom = '';
-            }
-        }
-
-        // Event saat window load
-        window.addEventListener('load', async function() {
-            const hasAdBlocker = await detectAdBlocker();
-            if (hasAdBlocker) {
-                console.log('AdBlocker terdeteksi');
-                fixEmptyAdContainers();
-            } else {
-                setTimeout(reloadAdsIfNeeded, 2000);
-                setTimeout(fixEmptyAdContainers, 3000);
-            }
-            setTimeout(function() {
-                const mainContainer = document.querySelector('.main-container');
-                if (mainContainer) {
-                    mainContainer.style.minHeight = '500px';
-                    mainContainer.style.marginBottom = '20px';
-                }
-                document.querySelectorAll('.article-card, .single-article').forEach(article => {
-                    article.style.overflow = 'hidden';
-                });
-                fixFooterPosition();
-            }, 1000);
-        });
-
-        // Perbaiki posisi footer pada resize dan scroll
-        window.addEventListener('resize', fixFooterPosition);
-        window.addEventListener('scroll', function() {
-            if (!window.footerThrottleTimeout) {
-                window.footerThrottleTimeout = setTimeout(function() {
-                    fixFooterPosition();
-                    window.footerThrottleTimeout = null;
-                }, 100);
-            }
-        });
-    })();
-    </script>
-    
+    <script src="<?php echo url_base(); ?>assets/js/script.js"></script>  
     <!-- Main JavaScript -->
     <script src="<?php echo url_base() . 'assets/js/main.js?v='.time(); ?>"></script>
  
@@ -219,10 +116,6 @@
             });
         }
         
-        // Add a class when the page has finished loading
-        // setTimeout(function(){
-        //     document.body.classList.add('theme-transition-complete');
-        // }, 300);
     });
     </script>
 

@@ -69,17 +69,21 @@
     }
 }
 
-/* Efek parallax pada scroll */
-html {
+/* Pastikan tidak ada konflik dengan sticky header */
+/* html {
     scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 body {
+    min-height: 100%;
     perspective: 1px;
-    height: 100%;
+    transform-style: preserve-3d;
     overflow-x: hidden;
-    overflow-y: auto;
-}
+    position: relative;
+} */
 
 .hero-image {
     transform-style: preserve-3d;
@@ -282,4 +286,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
+    z-index: 1;
+}
+
+/* Container untuk sticky widget */
+.sticky-container {
+    position: sticky;
+    top: 110px;
+    height: fit-content;
+    z-index: 100;
 }

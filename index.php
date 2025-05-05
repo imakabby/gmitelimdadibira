@@ -233,7 +233,7 @@ start_session();
                     });
                 });
             }
-            
+                        
             // Toggle Dark Mode
             const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
             const toggleSwitchDua = document.querySelector('.theme-switch-wrapper.dua .theme-switch input[type="checkbox"]');

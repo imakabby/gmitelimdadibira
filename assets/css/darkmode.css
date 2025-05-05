@@ -92,12 +92,16 @@ body.dark-mode header {
   transition-timing-function: ease;
 }
 
-/* Header dark mode */
+/* Header dark mode - pastikan tidak mengganggu sticky */
 body.dark-mode header,
 html.dark-mode header,
 .dark-mode header,
 header.dark-mode {
   background: var(--dark-header-bg) !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
 }
 
 html.dark-mode header {
