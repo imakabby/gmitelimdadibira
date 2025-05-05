@@ -130,11 +130,6 @@ start_session();
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>" />
     <?php endif; ?>
 
-    <!-- Google AdSense dengan setup yang lebih baik -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436399062257055" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="assets/css/search.css"> -->
-    <!-- Custom JS sudah ada di footer -->
-
     <script>
         // Toggle Menu untuk Mobile
         document.addEventListener('DOMContentLoaded', function() {

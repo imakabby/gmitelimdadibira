@@ -81,10 +81,7 @@ $categories = $stmt->fetchAll();
 ?>
 
 <?php
-// includes/header.php
-if (!function_exists('start_session')) {
-    require_once 'includes/functions.php';
-}
+
 start_session();
 ?><!DOCTYPE html>
 <html lang="id" <?php echo (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') ? 'class="dark-mode"' : ''; ?>>
