@@ -102,7 +102,7 @@ header {
     position: -webkit-sticky !important;
     position: sticky !important;
     top: 0;
-    z-index: 1500 !important;
+    z-index: 9999 !important;
     border-bottom: none;
     transition: all 0.3s ease;
     transform: translateZ(0);
@@ -121,6 +121,7 @@ header {
         width: 100% !important;
         left: 0 !important;
         right: 0 !important;
+        z-index: 9999 !important;
     }
 }
 
@@ -384,7 +385,7 @@ header:after {
         justify-content: flex-start;
         padding: 80px 20px 20px;
         transition: transform 0.3s ease-in-out;
-        z-index: 1000;
+        z-index: 9998;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
         display: flex;
@@ -396,6 +397,19 @@ header:after {
     .main-nav.active {
         transform: translateX(0);
         right: 0;
+    }
+
+    /* Animasi untuk toggle menu */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
     
     body.menu-open {
