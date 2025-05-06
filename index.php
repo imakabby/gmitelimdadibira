@@ -323,6 +323,10 @@ $categories = $stmt->fetchAll();
             <h1>Selamat Datang</h1>
             <h3>di Website Resmi <span>GMIT Elim Dadibra<span></h3>
         </div>
+        <div class="thema">
+            <h1>Lakukanlah Keadilan, Cintai Kesetiaan, dan Hidup Rendah Hati di Hadapan Allah.</h1>
+            <h3>Bdk. Mikhael 6:8</h3>
+        </div>
     </div>
 </div>
 
@@ -907,6 +911,58 @@ ion -->
                 }
             })();
         }); 
+
+
+           // Inisialisasi saat DOM telah dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        const titleWelcome = document.querySelector('.title-welcome');
+        const thema = document.querySelector('.thema');
+        let isShowingWelcome = true;
+
+        // Hapus style display: none dari thema
+        thema.removeAttribute('style');
+        
+        // Set kondisi awal
+        titleWelcome.classList.add('active');
+        thema.classList.add('hidden');
+
+        function switchContent() {
+            if (isShowingWelcome) {
+                // Sembunyikan welcome
+                titleWelcome.classList.remove('active');
+                titleWelcome.classList.add('inactive');
+                
+                // Tampilkan tema
+                thema.classList.remove('hidden');
+                thema.classList.remove('inactive');
+                thema.classList.add('active');
+                
+                setTimeout(() => {
+                    titleWelcome.classList.add('hidden');
+                    titleWelcome.classList.remove('inactive');
+                }, 10);
+            } else {
+                // Sembunyikan tema
+                thema.classList.remove('active');
+                thema.classList.add('inactive');
+                
+                // Tampilkan welcome
+                titleWelcome.classList.remove('hidden');
+                titleWelcome.classList.remove('inactive');
+                titleWelcome.classList.add('active');
+                
+                setTimeout(() => {
+                    thema.classList.add('hidden');
+                    thema.classList.remove('inactive');
+                }, 30);
+            }
+            
+            isShowingWelcome = !isShowingWelcome;
+        }
+
+        // Jalankan pergantian setiap 3 detik
+        setInterval(switchContent, 3000);
+    });
     </script>
 </body>
 </html>
