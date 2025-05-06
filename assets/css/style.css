@@ -922,14 +922,17 @@ footer::before {
     transition: all 0.3s ease;
 }
 
-.footer-bottom p:hover {
+.footer-bottom p:hover a {
     color: #fff;
+}
+
+.footer-bottom p:hover a {
+    color: #ff6092;
 }
 
 .footer-bottom p a:hover {
     color: #ff6092;
     text-decoration: none;
-    font-weight: bold;
 }
 
 .footer-social {
