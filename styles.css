@@ -164,7 +164,7 @@
     color: #ecbd75;
     font-weight: 600;
     text-shadow: -1px -1px 0 #38006b, 1px -1px 0 #38006b, -1px 1px 0 #38006b, 2px 2px 0 #38006b;
-    margin-top: -210px !important;
+    margin-top: -200px !important;
     letter-spacing: 0.1px !important;
     animation-name: float !important;
     animation-duration: 2s, 4s !important;
@@ -173,7 +173,7 @@
     animation-direction: normal, normal !important;
     animation-fill-mode: both, both !important;
     will-change: transform !important;
-    line-height: 0.9;
+    line-height: 1;
     margin-bottom: 80px;
     font-weight: 700;
 }
