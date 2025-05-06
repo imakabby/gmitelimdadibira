@@ -926,6 +926,12 @@ footer::before {
     color: #fff;
 }
 
+.footer-bottom p a:hover {
+    color: #ff6092;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .footer-social {
     display: flex;
     justify-content: center;
