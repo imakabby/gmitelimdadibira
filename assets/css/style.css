@@ -917,7 +917,7 @@ footer::before {
 }
 
 .footer-bottom p {
-    color: #888;
+    color: #cccccc;
     font-size: 13px;
     transition: all 0.3s ease;
 }
