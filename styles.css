@@ -12,7 +12,7 @@
 }
 
 .hero-image {
-    background-image: url('assets/background.jpg');
+    background-image: url('assets/background.jpeg');
     height: 100vh; /* Fallback */
     height: calc(var(--vh, 1vh) * 100);
     background-size: cover;

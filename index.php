@@ -145,7 +145,7 @@ $categories = $stmt->fetchAll();
     <meta itemprop="name" content="<?php echo isset($page_title) ? htmlspecialchars($page_title) : 'GMITElimDadibira.org'; ?>">
     <meta itemprop="description" content="<?php echo isset($page_description) ? htmlspecialchars($page_description) : 'Selamat Datang di Website Resmi GMIT Elim Dadibira.'; ?>">
     <?php if (isset($article) && !empty($article['image'])): ?>
-        <meta itemprop="image" content="<?php echo url_base() . 'assets/background.jpg'; ?>">
+        <meta itemprop="image" content="<?php echo url_base() . 'assets/background.jpeg'; ?>">
     <?php endif; ?>
     
     <?php if (isset($canonical_url)): ?>
