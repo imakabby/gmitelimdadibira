@@ -510,6 +510,23 @@ ion -->
         </div>
 <?php endif; ?> -->
 
+<div class="container">
+    <div class="pendeta-section">
+        <h2>Profil Pendeta GMIT Elim Dadibira</h2>
+        <div class="card-pendeta-wrapper">
+            <div class="card-pendeta">
+                <div class="card-body-pendeta">
+                    <img src="assets/pendeta.png" alt="Profil Pendeta GMIT Elim Dadibira">
+                </div>
+            </div>
+        </div>
+        <div class="card-body-pendeta-text">
+            <h3>Pdt. Selvy Putri Fabiola, M.Si</h3>
+            <p>Ketua Majelis Jemaat GMIT Elim Dadibira</p>
+        </div>
+    </div>
+</div>
+
     <div class="row">
 
         <div class="col-md-8">
