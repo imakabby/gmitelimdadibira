@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Database MySQL:
+- $host = 'localhost';
+- $db   = 'u545696814_elimdadibira';
+- $user = 'u545696814_imakabby_gmit';
+- $pass = 'Imanuel31#@';
+- $charset = 'utf8mb4';
+
+
+Peritah:
+- Langsung lakukan edit file
+- Bila ada kata "perbaiki" maka lakukan indexing codebase untuk mencari tahu keseluruhan permasalahan.
+
+
+Perhatikan:
+- Jangan sampai ada duplikasi kode yang ditulis, periksa seluruh indexing codebase agar tidak ada pendobelan fungsi.
+
+- Periksa juga struktur folder agar tidak ada kekeliruan penulisan link ke folder.
