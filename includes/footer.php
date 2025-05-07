@@ -49,7 +49,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> GMIT Elim Dadibira. Hak Cipta Dilindungi | Developed by <a href="https://www.instagram.com/imm.kbb_y01" target="_blank" style="color: #FFA1BE; text-decoration: none;">Ima Kabby</a></p>
+                <p>&copy; <?php echo date('Y'); ?> GMIT Elim Dadibira. Hak Cipta Dilindungi.<br>Developed by <a href="https://www.instagram.com/imm.kbb_y01" target="_blank" style="color: #FFA1BE; text-decoration: none;">Ima Kabby</a></p>
             </div>
         </div>
     </footer>
