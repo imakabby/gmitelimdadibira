@@ -129,7 +129,7 @@ $categories = $stmt->fetchAll();
     <link rel="stylesheet" href="<?php echo url_base() .'assets/css/banner.css?v='.time(); ?>">
     <link rel="stylesheet" href="<?php echo url_base() .'assets/css/adsfix.css?v='.time(); ?>">
     <link rel="stylesheet" href="<?php echo url_base() .'assets/css/darkmode.css?v='.time(); ?>">
-    <link rel="stylesheet" href="<?php echo url_base() .'assets/css/styles.css?v='.time(); ?>">
+    <link rel="stylesheet" href="<?php echo url_base() .'styles.css?v='.time(); ?>">
     
     <!-- Twitter card -->
     <?php if (isset($page_title) && isset($page_description)): ?>
