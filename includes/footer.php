@@ -2,8 +2,10 @@
 // includes/footer.php
 ?>
     </div><!-- end .container -->
-      
-    <footer class="site-footer">
+    <svg style="margin-bottom: -10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#232323" fill-opacity="1" d="M0,0L40,10.7C80,21,160,43,240,53.3C320,64,400,64,480,90.7C560,117,640,171,720,170.7C800,171,880,117,960,101.3C1040,85,1120,107,1200,106.7C1280,107,1360,85,1400,74.7L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+</svg>
+    <footer class="site-footer" style="margin-top: 0px !important;">
         <div class="container">
             <div class="footer-logo">
                 <a href="<?php echo url_base(); ?>index">GMIT Elim Dadibira</a>
@@ -69,7 +71,7 @@
         bottom: 0;
         width: 100%;
         z-index: 10;
-        margin-top: 40px;
+        /* margin-top: 40px; */
     }
     
     .adsbygoogle-container {

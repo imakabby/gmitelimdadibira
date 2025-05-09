@@ -75,7 +75,7 @@ input, textarea, select, .card, .article-card, .sidebar-widget {
   transition-duration: 0.3s;
   transition-timing-function: ease;
 }
-
+site-footer
 /* Elemen yang perlu transisi specific - tanpa background */
 header.scrolled, footer, .sidebar-widget, .article-card, .card, .banner-container, 
 .comment-item, .form-control, .btn, .pagination a, .site-logo span, 

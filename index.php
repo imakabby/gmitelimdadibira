@@ -131,6 +131,9 @@ $categories = $stmt->fetchAll();
     <link rel="stylesheet" href="<?php echo url_base() .'assets/css/darkmode.css?v='.time(); ?>">
     <link rel="stylesheet" href="<?php echo url_base() .'styles.css?v='.time(); ?>">
     
+    <!-- Tambahkan script slider -->
+    <script src="<?php echo url_base() .'assets/js/slider.js?v='.time(); ?>"></script>
+    
     <!-- Twitter card -->
     <?php if (isset($page_title) && isset($page_description)): ?>
         <meta name="twitter:card" content="summary_large_image">
@@ -197,9 +200,7 @@ $categories = $stmt->fetchAll();
 </head>
 <body id="body" <?php 
     $isDarkMode = isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark';
-    echo $isDarkMode ? 
-        'class="dark-mode no-transition force-dark-bg" style="background-color: #26272e !important; color: #e0e0e0 !important;"' : 
-        'class="no-transition"'; ?>>
+    echo $isDarkMode ? 'class="dark-mode"' : ''; ?>>
  
     <header>
         <div class="container">
@@ -319,6 +320,11 @@ $categories = $stmt->fetchAll();
     
 <div class="container-fluid">
     <div class="hero-image parallax-effect" data-speed="0.5">
+        <div class="slider">
+            <div id="slide1" class="slide"></div>
+            <div id="slide2" class="slide"></div>
+            <div id="slide3" class="slide"></div>
+        </div>
         <div class="title-welcome">
             <h1>Selamat Datang</h1>
             <h3>di Website Resmi <span>GMIT Elim Dadibra<span></h3>
@@ -329,6 +335,11 @@ $categories = $stmt->fetchAll();
         </div>
     </div>
 </div>
+<div class="pembatas" style="position: absolute; width: 100%; z-index: -1; padding-top: 200px; background-color: #ead3f2;"></div>
+<svg style="position: absolute; width: 100%; z-index: -1; margin-top: 200px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#ead3f2" fill-opacity="1" d="M0,96L120,117.3C240,139,480,181,720,197.3C960,213,1200,203,1320,197.3L1440,192L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+    </svg>
+
 
 <?php if ($show_banner): ?>
     <div class="banner-container">

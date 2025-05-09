@@ -353,18 +353,26 @@ blockquote cite {
 
 /* Footer Styles */
 footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    /* background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); */
+    background-color: #232323;
     color: #fff;
     padding: 60px 0 30px;
-    margin-top: auto;
-    position: relative;
+    margin-top: -100px !important;
+    /* position: relative;
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(90deg, #c71585, #db7093, #8b008b, #9b4dff); */
+    /* border-image-slice: 1; */
+}
+
+.pembatas {
     box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
     border-top: 5px solid transparent;
     border-image: linear-gradient(90deg, #c71585, #db7093, #8b008b, #9b4dff);
     border-image-slice: 1;
 }
 
-footer::before {
+/* footer::before {
     content: '';
     position: absolute;
     top: 0;
@@ -375,7 +383,7 @@ footer::before {
     opacity: 0.3;
     z-index: 1;
     pointer-events: none;
-}
+} */
 
 .footer-content {
     display: grid;
@@ -397,7 +405,7 @@ footer::before {
     transform: translateY(-5px);
 }
 
-.footer-section::after {
+/* .footer-section::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -407,7 +415,7 @@ footer::before {
     height: 2px;
     background: linear-gradient(90deg, #ff69b4, #ffb6c1);
     transition: width 0.3s ease;
-}
+} */
 
 .footer-section:hover::after {
     width: 80%;

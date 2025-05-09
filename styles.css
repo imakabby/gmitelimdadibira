@@ -12,8 +12,8 @@
 }
 
 .hero-image {
-    background-image: url('assets/background.jpeg');
-    height: 100vh; /* Fallback */
+    background-image: none; /* Menghapus background image sebelumnya */
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     background-size: cover;
     background-position: center;
@@ -465,4 +465,61 @@
     .hero-image .thema h3 {
         font-size: 1.2rem !important;
     }
+}
+
+/* Tambahan CSS untuk slider */
+.hero-image {
+    background-image: none; /* Menghapus background image sebelumnya */
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+#slide1 {
+    background-image: url('assets/images/slider/slide1.jpg');
+}
+
+#slide2 {
+    background-image: url('assets/images/slider/slide2.jpg');
+}
+
+#slide3 {
+    background-image: url('assets/images/slider/slide3.jpg');
 }
