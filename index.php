@@ -959,32 +959,33 @@ ion -->
                 // Sembunyikan welcome
                 titleWelcome.classList.remove('active');
                 titleWelcome.classList.add('inactive');
-                
-                // Tampilkan tema
-                thema.classList.remove('hidden');
-                thema.classList.remove('inactive');
-                thema.classList.add('active');
-                
                 setTimeout(() => {
                     titleWelcome.classList.add('hidden');
                     titleWelcome.classList.remove('inactive');
+                }, 500); // beri waktu animasi keluar
+
+                // Tampilkan thema
+                thema.classList.remove('hidden');
+                thema.classList.remove('inactive');
+                setTimeout(() => {
+                    thema.classList.add('active');
                 }, 10);
             } else {
-                // Sembunyikan tema
+                // Sembunyikan thema
                 thema.classList.remove('active');
                 thema.classList.add('inactive');
-                
-                // Tampilkan welcome
-                titleWelcome.classList.remove('hidden');
-                titleWelcome.classList.remove('inactive');
-                titleWelcome.classList.add('active');
-                
                 setTimeout(() => {
                     thema.classList.add('hidden');
                     thema.classList.remove('inactive');
-                }, 30);
+                }, 500);
+
+                // Tampilkan welcome
+                titleWelcome.classList.remove('hidden');
+                titleWelcome.classList.remove('inactive');
+                setTimeout(() => {
+                    titleWelcome.classList.add('active');
+                }, 10);
             }
-            
             isShowingWelcome = !isShowingWelcome;
         }
 

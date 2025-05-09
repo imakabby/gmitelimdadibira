@@ -381,6 +381,7 @@
     will-change: transform, opacity, filter;
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
+    z-index: 3;
 }
 
 .title-welcome.active, .thema.active {
