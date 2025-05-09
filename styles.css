@@ -52,7 +52,7 @@
     background-blend-mode: overlay;
     transform: translateZ(-1px) scale(2);
     box-shadow: 0 2px 15px rgba(103, 58, 183, 0.3);
-    z-index: -1;
+    z-index: 2;
     animation: gradientRotate 15s ease-in-out infinite !important;
 }
 
@@ -506,6 +506,7 @@
     transition: opacity 0.5s ease-in-out;
     background-size: cover;
     background-position: center;
+    z-index: 1;
 }
 
 .slide.active {
