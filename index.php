@@ -430,27 +430,6 @@ $categories = $stmt->fetchAll();
 
 <div class="container main-container">
 
-<!-- Running Text -->
-<div class="running-text">
-    <div class="running-text-label">
-        <span>Berita Terbaru:</span>
-    </div>
-    <div class="running-text-content">
-        <p>
-            <?php if (!empty($latest_articles)): ?>
-                <?php foreach ($latest_articles as $latest): ?>
-                    <a href="<?php echo url_base(); ?>artikel/<?php echo $latest['slug']; ?>">
-                        <?php echo htmlspecialchars($latest['title']); ?>
-                        <small>(<?php echo waktuYangLalu($latest['created_at']); ?>)</small>
-                    </a>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <a href="#">Belum ada artikel terbaru</a>
-            <?php endif; ?>
-        </p>
-    </div>
-</div>
-
 <!-- Headline News Sect
 <?php if ($page < 2 && !empty($articles)): ?>
 <div class="headline-section">
@@ -586,7 +565,7 @@ ion -->
 
 <div class="container">
     <div class="pendeta-section">
-        <h2>Profil Pendeta GMIT Elim Dadibira</h2>
+        <h2 >PROFIL PENDETA GMIT ELIM DADIBIRA</h2>
         <div class="card-pendeta-wrapper">
             <div class="card-pendeta">
                 <div class="card-body-pendeta">
@@ -608,6 +587,27 @@ ion -->
     <button class="button-data-jemaat btn">
         <a href="#">Data Jemaat Elim Dadibira <i class="fas fa-arrow-right"></i></a>
     </button>
+</div>
+
+<!-- Running Text -->
+<div class="running-text">
+    <div class="running-text-label">
+        <span>Berita Terbaru:</span>
+    </div>
+    <div class="running-text-content">
+        <p>
+            <?php if (!empty($latest_articles)): ?>
+                <?php foreach ($latest_articles as $latest): ?>
+                    <a href="<?php echo url_base(); ?>artikel/<?php echo $latest['slug']; ?>">
+                        <?php echo htmlspecialchars($latest['title']); ?>
+                        <small>(<?php echo waktuYangLalu($latest['created_at']); ?>)</small>
+                    </a>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <a href="#">Belum ada artikel terbaru</a>
+            <?php endif; ?>
+        </p>
+    </div>
 </div>
 
     <div class="row">

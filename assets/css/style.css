@@ -1766,7 +1766,7 @@ footer {
 /* Responsive Running Text */
 @media (max-width: 768px) {
     .running-text {
-        margin: 0 10px 20px 10px;
+        margin: 0 -10px 20px -10px;
         padding: 6px 0;
     }
     
@@ -1792,7 +1792,7 @@ footer {
 
 @media (max-width: 576px) {
     .running-text {
-        margin: 0 8px 15px 8px;
+        margin: 0 -10px 15px -10px;
         padding: 5px 0;
     }
     
@@ -3429,29 +3429,94 @@ footer {
 
 /* Card Pendeta Styles */
 .pendeta-section {
+    margin-top: 50px;
     margin-bottom: 40px;
 }
 
 .pendeta-section h2 {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 25px;
-    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 800;
     color: #333;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    text-shadow: 
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff,
+        2px 2px 4px rgba(0,0,0,0.1);
 }
 
-.pendeta-section h2::after {
+/* Dark mode adjustment */
+.dark-mode .pendeta-section h2 {
+    color: #e0e0e0;
+    text-shadow: 
+        -1px -1px 0 rgba(255,255,255,0.2),
+        1px -1px 0 rgba(255,255,255,0.2),
+        -1px 1px 0 rgba(255,255,255,0.2),
+        1px 1px 0 rgba(255,255,255,0.2),
+        2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* .pendeta-section h2::before {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #ff69b4, #ffb6c1);
-    border-radius: 3px;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #9900ef, #f78da7);
+    border-radius: 4px;
+} */
+
+.pendeta-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #f78da7, #9900ef);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.pendeta-section h2:hover::after {
+    width: 90px;
+}
+
+/* Dark mode styles */
+.dark-mode .pendeta-section h2 {
+    color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .pendeta-section h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pendeta-section h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+        
+    .pendeta-section h2::after {
+        width: 50px;
+        height: 3px;
+        bottom: -3px;
+    }
 }
 
 .card-pendeta-wrapper {
