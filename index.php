@@ -565,7 +565,7 @@ ion -->
 
 <div class="container">
     <div class="pendeta-section">
-        <h2 >PROFIL PENDETA GMIT ELIM DADIBIRA</h2>
+        <h2 >PROFIL PENDETA</h2>
         <div class="card-pendeta-wrapper">
             <div class="card-pendeta">
                 <div class="card-body-pendeta">
@@ -580,7 +580,7 @@ ion -->
     </div>
 </div>
 
-<div class="button-container container">
+<div class="button-container container" style="margin-bottom: 60px ">
     <button class="button-struktur btn">
         <a href="#">Struktur Organisasi <i class="fas fa-arrow-right"></i></a>
     </button>
