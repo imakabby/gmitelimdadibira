@@ -334,7 +334,7 @@ $categories = $stmt->fetchAll();
             <h3>Bdk. Mikhael 6:8</h3>
         </div>
     </div>
-</div>
+ 
 <svg class="background-svg" width="100%" height="120%" id="svg" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
           .path-0{
             animation:pathAnim-0 4s;
@@ -599,6 +599,15 @@ ion -->
             <p>Ketua Majelis Jemaat GMIT Elim Dadibira</p>
         </div>
     </div>
+</div>
+
+<div class="button-container container">
+    <button class="button-struktur btn">
+        <a href="#">Struktur Organisasi <i class="fas fa-arrow-right"></i></a>
+    </button>
+    <button class="button-data-jemaat btn">
+        <a href="#">Data Jemaat Elim Dadibira <i class="fas fa-arrow-right"></i></a>
+    </button>
 </div>
 
     <div class="row">
