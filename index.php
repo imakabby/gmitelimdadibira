@@ -462,14 +462,14 @@ $categories = $stmt->fetchAll();
 <!-- Running Text -->
 <div class="running-text">
     <div class="running-text-label">
-        <span>Berita Terbaru:</span>
+        <span>Terbaru:</span>
     </div>
     <div class="running-text-content">
         <p>
             <?php if (!empty($latest_articles)): ?>
                 <?php foreach ($latest_articles as $latest): ?>
                     <a href="<?php echo url_base(); ?>artikel/<?php echo $latest['slug']; ?>">
-                        <?php echo htmlspecialchars($latest['title']); ?>
+                        <?php echo htmlspecialchars_decode($latest['title']); ?>
                         <small>(<?php echo waktuYangLalu($latest['created_at']); ?>)</small>
                     </a>
                 <?php endforeach; ?>
@@ -523,7 +523,7 @@ $categories = $stmt->fetchAll();
 <div class="col-md-12">
     <div style="margin: 0 -15px 20px -15px; padding: 0 !important; box-shadow: none !important;">
             <div class="pilihan-container" style="padding: 0 !important; box-shadow: none !important;">
-            <h2 style="padding-left: 50px; z-index: 10; font-size: 22px;">Pilihan Editor</h2>
+            <h2 style="padding-left: 50px; z-index: 10; font-size: 22px;">Pilihan</h2>
                 <div class="pilihan-scrollable">
                     <?php 
                     // Periksa apakah kolom is_editors_pick ada di tabel articles
