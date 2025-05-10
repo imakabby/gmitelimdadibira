@@ -3707,6 +3707,6 @@ footer {
 }
 @media (max-width: 480px) {
     .gradient-background {
-        height: 180px;
+        height: 140px;
     }
 }
