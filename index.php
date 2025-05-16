@@ -403,7 +403,6 @@ $categories = $stmt->fetchAll();
             }
           }</style><defs><linearGradient id="gradient" x1="0%" y1="51%" x2="100%" y2="49%"><stop offset="5%" stop-color="#9900ef"></stop><stop offset="95%" stop-color="#f78da7"></stop></linearGradient></defs><path d="M 0,600 L 0,412 C 85.15641025641025,425.95641025641027 170.3128205128205,439.91282051282053 237,452 C 303.6871794871795,464.08717948717947 351.9051282051282,474.30512820512814 441,459 C 530.0948717948718,443.69487179487186 660.0666666666667,402.8666666666667 752,398 C 843.9333333333333,393.1333333333333 897.8282051282051,424.2282051282051 976,421 C 1054.1717948717949,417.7717948717949 1156.6205128205129,380.2205128205128 1238,373 C 1319.3794871794871,365.7794871794872 1379.6897435897436,388.8897435897436 1440,412 L 1440,600 L 0,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-2" transform="rotate(-180 720 300)"></path></svg>
 
-
 <?php if ($show_banner): ?>
     <div class="banner-container">
         <?php if (!empty($banner_image) && file_exists($banner_image)): ?>
